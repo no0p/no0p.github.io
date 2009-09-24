@@ -17,16 +17,20 @@ html, body {
 
 body {
   background-color: white;
-  font: 13.34px helvetica, arial, clean, sans-serif;
-  *font-size: small;
+  font-family: 'Georgia', 'DejaVu Serif', 'Times', 'Times New Roman', serif
+  font-size: 110%;
   text-align: center;
 }
 
-h1, h2, h3, h4, h5, h6 {
+h1 {
+	font-size: 2.5em;
+}
+
+h2, h3, h4, h5, h6 {
   font-size: 100%;
 }
 
-h1 {
+g1 {
   margin-bottom: 1em;
 }
 
@@ -113,6 +117,7 @@ ul.posts {
 
   .site .meta {
     color: #aaa;
+		font-size: 100%;
   }
 
   .site .footer {
