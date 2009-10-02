@@ -1,0 +1,29 @@
+---
+layout: post
+title: Tyranny of OS X 
+---
+
+h1. {{ page.title }}
+
+p(meta). Sept 29 2009 - Los Angeles
+
+
+
+Steve Jobs you *bastard*! $100 for a new battery cable, is that right?!  When ibook charger started emitting sparks I was terrified and horrified -- do you have any idea what the consequences for such faulty engineering are?
+
+
+<center><img src="/images/fire.jpg" alt="An Opinion on the Consequences of Computing with Apple" /></center>
+
+Did you pay more than a dollar to manufacture and design that cable -- I think not.  My mind reels
+
+Just a short while ago my ibook charger began emitting sparks.  Electrical discharge is nothing to play around with.  
+
+<center><object width="425" height="344"><param name="movie" value="http://www.youtube.com/v/qOqvWJCGnek&hl=en&fs=1&"></param><param name="allowFullScreen" value="true"></param><param name="allowscriptaccess" value="always"></param><embed src="http://www.youtube.com/v/qOqvWJCGnek&hl=en&fs=1&" type="application/x-shockwave-flash" allowscriptaccess="always" allowfullscreen="true" width="425" height="344"></embed></object>
+"Bring it on you yellow hearted, greasy, mucusy bastard!"
+</center>
+
+
+
+
+
+
