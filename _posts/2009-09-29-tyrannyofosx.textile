@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Tyranny of OS X 
+title: Reasons I do not to use OS X 
 ---
 
 h1. {{ page.title }}
@@ -8,18 +8,26 @@ h1. {{ page.title }}
 p(meta). Sept 29 2009 - Los Angeles
 
 
+*1.  My Ibook Charger, My Poverty*
 
-Steve Jobs you *bastard*! $100 for a new battery cable, is that right?!  When ibook charger started emitting sparks I was terrified and horrified -- do you have any idea what the consequences for such faulty engineering are?
+Steve Jobs you *scoundrel*! $100 for a new battery cable, is that right?!  When my ibook charger started emitting sparks I was horrified -- do you have any idea what the consequences for such faulty engineering are?
 
 
-<center><img src="/images/fire.jpg" alt="An Opinion on the Consequences of Computing with Apple" /></center>
+<center><img src="/images/fire.jpg" alt="An Opinion on the Consequences of Computing with Apple" /><br/><span class="caption">"Apple's Handywork."</span></center>
 
-Did you pay more than a dollar to manufacture and design that cable -- I think not.  My mind reels
+Did you pay more than a dollar to manufacture and design that cable -- I think not.  My mind reels at the extortion.  To make matters worse when I inquired about a backup disc for the version of OS X which shipped with my ibook, I was met with another $100.00 charge.  Considering I already owned a license that is some expensive plastic!
 
-Just a short while ago my ibook charger began emitting sparks.  Electrical discharge is nothing to play around with.  
+<br/>*2.  Labor Exploitation*
+
+A cursory search of Apple's third world labor exploitation revealed startling and seriously grim information.  "According to various Chinese media reports, the worker at Chinese manufacturer Foxconn committed suicide last week after a fourth-generation iPhone prototype for which he was responsible went missing."  <a href="http://news.cnet.com/8301-13579_3-10291701-37.html">Apple Worker Commits Suicide</a>.  I'm sure most hardware manufacturing operations are based on human exploitation but they at least have a smaller <a href="http://en.wikipedia.org/wiki/Surplus_value">surplus value</a> problem.
+
+<br/>*3.  Status symbols are out of fashion*
+
+This is simple enough.  With a free, open source, hardware independent, stable, fast alternative like linux, when you choose to spend a thousand dollars on an ibook you essentially declare to the world that you have disposable income you choose to *waste*.  Stop.  Let's face it, apple ownership is bourgeois.
+<br/>
 
 <center><object width="425" height="344"><param name="movie" value="http://www.youtube.com/v/qOqvWJCGnek&hl=en&fs=1&"></param><param name="allowFullScreen" value="true"></param><param name="allowscriptaccess" value="always"></param><embed src="http://www.youtube.com/v/qOqvWJCGnek&hl=en&fs=1&" type="application/x-shockwave-flash" allowscriptaccess="always" allowfullscreen="true" width="425" height="344"></embed></object>
-"Bring it on you yellow hearted, greasy, mucusy bastard!"
+<span class="caption">"Bring it on you yellow hearted, greasy, mucusy bastard!  Your lawyers don't scare me!"</span>
 </center>
 
 

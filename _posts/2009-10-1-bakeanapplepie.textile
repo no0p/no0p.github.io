@@ -7,10 +7,14 @@ h1. {{ page.title }}
 
 p(meta). Octo 1 2009 - Los Angeles
 
-If you want to write a new rails app you must first invent a proper development environment.  This article will skip the next article, and assume that you are already convinced that linux is the proper operating system, for both philosophical and practical reasons, and just right in to vim evangilizing.  There was a time when I too was infantuated with the glitz and glamour of OS X and Textmate.  But if I know anything, it's that butter is *way* better than margarine.  You have to see through the bullshit.  Also I'm broke.
+A proper development environment is essential.  It must be morally pure (assume that you are already convinced that linux is the proper os).  There was a time when I too was infantuated with the glitz and glamour of OS X and Textmate.  But if I know anything, it's that butter is *way* better than margarine.  You have to see through the bullshit.  Also I'm broke.
 
 Oh how the bourgeoisie hound me day and night.  Driving the labor market to new depths while Bernanke laughs in his posh Manhattan apartment.  Just the other day the battery charger to my ibook start emitting sparks and reminded me of what 120V AC feels like.  It's almost as invigorating as when the apple store informs you that you are on your own and need to dish out nearly 100 bucks for a replacement charger.  If I had 100 bucks I wouldn't own a laptop which sparks when you plug it in, and I'd bet you dollars to donuts I wouldn't want to blow it all on a Textmate license.  Catch-22.
 
-Fortunately there's vim.
+Fortunately there's vim.  With a few plugins you can have a file tree, tabbed editing buffers, and even autocompletion.
+
+<center><img style="width: 700px;" src="/images/screenshot.png" alt="A Screenshot" /><br/><span class="caption">"A showcase."</span></center>
+
+There is a cool 
 
 
