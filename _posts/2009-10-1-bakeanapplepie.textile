@@ -15,6 +15,5 @@ Fortunately there's vim.  With a few plugins you can have a file tree, tabbed ed
 
 <center><img style="width: 700px;" src="/images/screenshot.png" alt="A Screenshot" /><br/><span class="caption">"A showcase."</span></center>
 
-There is a cool 
 
 
