@@ -1,4 +1,30 @@
-.highlight  { background: #ffffff; }
+.highlight  { background: #000000; color: white; padding-left: 15px;}
+.highlight:before {
+	background: transparent url(/images/top-right.png) scroll no-repeat top right;
+  margin-bottom: -20px;
+	margin-left: -15px;
+  height: 30px;
+  display: block;
+  border: none;
+  content: url(/images/top-left.png);
+  padding: 0;
+  line-height: 0.1;
+  font-size: 1px;
+}
+.highlight:after {
+display: block;
+  line-height: 0.1;
+  font-size: 1px;
+  content:  url(/images/bottom-left.png);
+  margin-left: -15px;
+	margin-top: 0px;
+	margin-bottom: 0px;
+	margin-right: 0px;
+	height: 30px;
+  background: black;
+  background: transparent url(/images/bottom-right.png) scroll no-repeat bottom right ;
+  padding: 0;
+}
 .highlight .c { color: #999988; font-style: italic } /* Comment */
 .highlight .err { color: #a61717; background-color: #e3d2d2 } /* Error */
 .highlight .k { font-weight: bold } /* Keyword */
