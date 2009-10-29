@@ -10,7 +10,17 @@ p(meta). Octo 30 2009 - Los Angeles
 
 * 1. The gems *
 
-* 2. Tweaking the output*
+{%highlight ruby%}
+  sudo gem install facets
+	sudo gem install turn
+{%endhighlight%}
+
+* 2. Add a quick require to your test/test_helper.rb  *
+{%highlight ruby%}
+begin; require 'turn'; rescue LoadError; end
+{%endhighlight%}
+
+* 3. Tweaking the output *
 
 I actually prefer to have the Test case itself colored, so by adding the line to TestRunner.t_test_started in /lib/turn.rb you are on your way: 
 
