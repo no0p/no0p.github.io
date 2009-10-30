@@ -1,0 +1,36 @@
+---
+layout: post
+title: Delightful Test::Unit results with TURN 
+---
+
+h1. {{ page.title }}
+
+p(meta). Octo 29 2009 - Los Angeles
+
+There is something about nice output that makes you feel good inside.  Like the guarantee written on the outside of a box, a green characters are reassuring.  I rather like Test::Unit as well.  It has a certain moral rigidity to it, not entirely dissimilar to Batman's.  When I use rspec I feel like the kid who always had to change his controller settings before his turn to play Mortal Kombat.  So ... to spice up the Test::Unit output there are some solutions in the world today.    
+
+* 1. The gems *
+
+There is a great turn gem -- Test::Unit Reporter (New).  As the readme notes, if you also install the facets gem turn will produce colored output. 
+
+{%highlight ruby%}
+  sudo gem install facets
+	sudo gem install turn
+{%endhighlight%}
+
+* 2. Add a quick require to your test/test_helper.rb  *
+Since we're running rails tests you want to add the folowing line to test/test_helper.rb to require turn.
+
+{%highlight ruby%}
+begin; require 'turn'; rescue LoadError; end
+{%endhighlight%}
+
+* 3. Tweaking the output *
+
+While turn is great by default I kind of like a little more color to help distinguish meaning quickly.  For example you can dig into the gem and add a line to TestRunner.t_test_started in /lib/turn.rb:
+
+{%highlight ruby%}
+	file = COLORIZE ? ::ANSICode.yellow(file) : file	
+{%endhighlight%}
+
+You can check out the turn repo here: <a href="http://github.com/TwP/turn">http://github.com/TwP/turn</a>
