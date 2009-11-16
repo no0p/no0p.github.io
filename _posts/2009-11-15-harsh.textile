@@ -7,11 +7,13 @@ h1. {{ page.title }}
 
 p(meta). Nov 15, 2009 - Los Angeles
 
-* Just when you've got a deadline... *
+* Just when you've got a deadline *
 
 My computer decides to stop responding to elecricity.  In order to get things done I'm now working with what you might call a "special" computer.
 
 Cannibalizing a few components I'm now blogging and working from this:
+
+The best part is that to turn it on and off you just need to touch a screwdriver to a couple leads.  Now if I can just find an old pizza box to stick this in I'd be in business.
 
 <center>
 <img src="images/desk1.jpg" style="width: 800px;"/>
