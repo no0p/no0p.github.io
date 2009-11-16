@@ -14,9 +14,9 @@ My computer decides to stop responding to elecricity.  In order to get things do
 Cannibalizing a few components I'm now blogging and working from this:
 
 <center>
-<img src="images/desk1.jpg"/>
+<img src="images/desk1.jpg" style="width: 800px;"/>
 <br/>
-<img src="images/desk2.jpg"/>
+<img src="images/desk2.jpg" style="width: 800px;"/>
 </center>
 
 
