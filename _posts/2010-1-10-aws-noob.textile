@@ -1,0 +1,55 @@
+---
+layout: post
+title: Deploying a typical rails stack on aws from the uninitiated perspective 
+---
+
+h1. {{ page.title }}
+
+p(meta). Jan 10 2010 - Los Angeles
+
+*1. Understanding the commodification of computational resources*
+
+- instance time, storage, data tranfer
+
+- Not cpu cycles, damn.
+
+{%highlight ruby%}
+
+{%endhighlight%}
+
+
+*2. Types of instances*
+
+- ebs
+
+- s3
+
+{%highlight ruby%}
+
+{%endhighlight%}
+
+*3. Persistent Storage*
+
+- mounting an ebs volume
+
+- scripting and sharing volumes
+
+{%highlight ruby%}
+
+{%endhighlight%}
+
+*4.  Some notes on configuring ubuntu 8.04 ebs instance*
+
+-Update etc/apt/sources.list
+
+-Update tzselect
+
+-Users setup
+
+  
+{%highlight ruby%}
+  
+{%endhighlight%}
+
+
+
