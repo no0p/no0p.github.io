@@ -24,7 +24,7 @@ Rate.find_by_sql("SELECT distinct on (check_in) id, amount, check_in FROM
 
 {%endhighlight%}
 
-I was going nuts because I wanted to group by check_in, with the minimum amount, and include the record id.  No I do not want to group by the id.  I don't care if the results are indeterminate.  Thankfully I found DISTINCT ON http://www.postgresql.org/docs/8.0/interactive/queries-select-lists.html.
+I was going nuts because I wanted to group by check_in, with the minimum amount, and include the record id.  No I do not want to group by the id.  I don't care if the results are indeterminate.  Thankfully I found <a href="http://www.postgresql.org/docs/8.0/interactive/queries-select-lists.html">DISTINCT ON</a>.
 
 From the documentation:
 
@@ -33,5 +33,7 @@ From the documentation:
 
 <center>
 <object width="512" height="296 "><param name="movie" value="http://www.hulu.com/embed/siFlf_JGykhbsLEbvK9Img"></param><param name="allowFullScreen" value="true"></param><embed src="http://www.hulu.com/embed/siFlf_JGykhbsLEbvK9Img" type="application/x-shockwave-flash" allowFullScreen="true"  width="512" height="296"></embed></object>
+<div style="font-size: 10pt; font-style:italic;">discovering non-standard DISTINCT ON</div>
+
 </center>
 
