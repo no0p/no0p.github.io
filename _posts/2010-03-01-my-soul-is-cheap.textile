@@ -11,10 +11,10 @@ Generally I think deviating from standards is kind of lame, and to be avoided.  
 
 Well today I discovered that my soul is pretty cheap actually.
 
-{%highlight ruby%}
-
+{%highlight sql%}
+<div style="width: 500px;">
 Rate.find_by_sql("SELECT distinct on (check_in) id, amount, check_in from (select MIN(amount) AS amount, check_in, id FROM (SELECT rates.amount, rates.check_in, rates.id FROM rates INNER JOIN rate_types ON rates.rate_type_id = rate_types.id INNER JOIN data_sets_rates ON rate_id = rates.id WHERE data_sets_rates.data_set_id = #{data_set.id} AND hotel_id = #{hotel.id} AND rate_types.restricted = 0 AND rate_types.qualified = 0) AS foo GROUP BY check_in, id ORDER BY check_in) as bar")
-
+</div>
 #is all it took
 
 {%endhighlight%}
