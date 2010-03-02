@@ -1,0 +1,32 @@
+---
+layout: post
+title: The price of my database soul 
+---
+
+h1. {{ page.title }}
+
+p(meta). March 1, 2010 - Los Angeles
+
+Generally I think deviating from standards is kind of lame, and to be avoided.  What would it take for you to start using a non-standard SQL dialiect?  To give up your database agnosticism in your rails application?
+
+Well today I discovered that my soul is pretty cheap actually.
+
+{%highlight sql%}
+
+Rate.find_by_sql("SELECT distinct on (check_in) id, amount, check_in from (select MIN(amount) AS amount, check_in, id FROM (SELECT rates.amount, rates.check_in, rates.id FROM rates INNER JOIN rate_types ON rates.rate_type_id = rate_types.id INNER JOIN data_sets_rates ON rate_id = rates.id WHERE data_sets_rates.data_set_id = #{data_set.id} AND hotel_id = #{hotel.id} AND rate_types.restricted = 0 AND rate_types.qualified = 0) AS foo GROUP BY check_in, id ORDER BY check_in) as bar")
+
+#is all it took
+
+{%endhighlight%}
+
+I was going nuts because I wanted to group by check_in, with the minimum amount, and include the record id.  No I do not want to group by the id.  I don't care if the results are indeterminate.  Thankfully I found DISTINCT ON http://www.postgresql.org/docs/8.0/interactive/queries-select-lists.html.
+
+From the documentation:
+
+"The DISTINCT ON clause is not part of the SQL standard and is sometimes considered bad style because of the potentially indeterminate nature of its results. With judicious use of GROUP BY and subqueries in FROM the construct can be avoided, but it is often the most convenient alternative. "
+
+
+
+<object width="512" height="296 "><param name="movie" value="http://www.hulu.com/embed/siFlf_JGykhbsLEbvK9Img"></param><param name="allowFullScreen" value="true"></param><embed src="http://www.hulu.com/embed/siFlf_JGykhbsLEbvK9Img" type="application/x-shockwave-flash" allowFullScreen="true"  width="512" height="296"></embed></object>
+
+
