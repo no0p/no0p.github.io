@@ -7,6 +7,8 @@ h1. {{ page.title }}
 
 p(meta). March 1, 2010 - Los Angeles
 
+You should probably ignore this post.  It turns out that indeterminancy sucks immensely.
+
 Generally I think deviating from standards is kind of lame, and to be avoided.  But what would it take for you to start using a non-standard SQL dialiect?  To give up your database agnosticism in your rails application?
 
 Well today I discovered that my soul is pretty cheap actually.
