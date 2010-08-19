@@ -1,0 +1,12 @@
+---
+layout: post
+title: Greener Blogging Pastures 
+---
+
+h1. {{ page.title }}
+
+p(meta). August 18, 2010 - Portland, OR
+
+Trying out tumbler for blogging.  Jekyll was nice but maybe a system which encourages shorter blog entries will result in more blog entries?
+
+<a href="http://bdigital.tumblr.com">http://bdigital.tumblr.com</a>
