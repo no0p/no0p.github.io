@@ -5,6 +5,12 @@ title: Greener Blogging Pastures
 
 h1. {{ page.title }}
 
+p(meta). April 4, 2011 - Portland, OR
+
+An update to a new blog location post.  Now I'm trying out posterous, but this time I made an actual entry on my recent exploration of creating a textured background.  You can read it here:
+
+<a href="http://http://bdigital.posterous.com/">http://http://bdigital.posterous.com/</a>
+
 p(meta). August 18, 2010 - Portland, OR
 
 Trying out tumbler for blogging.  Jekyll was nice but maybe a system which encourages shorter blog entries will result in more blog entries?
