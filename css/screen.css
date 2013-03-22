@@ -16,42 +16,46 @@ html, body {
 }
 
 body {
-  background-color: white;
+  background: #FFFFFF url(/images/wild_olivia.png);
   font-family: 'Georgia', 'DejaVu Serif', 'Times', 'Times New Roman', serif
-	color: #444444
+	color: #e5e5e5;
 	font-size: 110%;
   text-align: center;
 }
 
+p {
+  color: #e5e5e5;
+}
 h1 {
 	font-size: 160%;
-	color: #222222;
+	color: #e5e5e5;
 	margin-top: 55px;
 		
 }
 
 h2, h3, h4, h5, h6 {
+  color: #e5e5e5;
   font-size: 100%;
 }
 
 g1 {
   margin-bottom: 1em;
 }
-
+code {
+  color: #e5e5e5;
+}
 p {
   margin: 1em 0;
 }
 
 a {
-  color: #00a;
+  color: #e5e5e5;
 }
 
 a:hover {
-  color: black;
 }
 
 a:visited {
-  color: #a0a;
 }
 
 table {
@@ -71,11 +75,11 @@ ul.posts {
 }
 
   ul.posts li {
+    color: #00f403;
     line-height: 1.75em;
   }
 
   ul.posts span {
-    color: #aaa;
     font-family: Monaco, "Courier New", monospace;
     font-size: 80%;
   }
@@ -101,7 +105,7 @@ ul.posts {
 }
 
   .site .title a {
-    color: green;
+    color: #00f403;
     text-decoration: none;
   }
 
@@ -110,35 +114,32 @@ ul.posts {
 }
 
   .site .title a.extra {
-    color: #aaa;
     text-decoration: none;
     margin-left: 1em;
   }
 
   .site .title a.extra:hover {
-    color: black;
   }
 
   .site .meta {
-    color: #aaa;
+    color: #00f403;
 		font-size: 100%;
   }
 
   .site .footer {
     font-size: 80%;
-    color: #666;
-    border-top: 4px solid #eee;
+    border-top: 4px solid #ccc;
     margin-top: 2em;
     overflow: hidden;
   }
 
     .site .footer .contact {
+      color: #e5e5e5;
       float: left;
       margin-right: 3em;
     }
 
       .site .footer .contact a {
-        color: #8085C1;
       }
 
     .site .footer .rss {
@@ -165,7 +166,6 @@ ul.posts {
 
   #post pre {
     border: 1px solid #ddd;
-    background-color: #eef;
     padding: 0 .4em;
   }
 
@@ -176,7 +176,6 @@ ul.posts {
 
   #post code {
     border: 1px solid #ddd;
-    background-color: #eef;
     font-size: 95%;
     padding: 0 .2em;
   }
@@ -189,12 +188,10 @@ ul.posts {
 
   #post pre.terminal {
     border: 1px solid black;
-    background-color: #333;
-    color: white;
+    color: #e5e5e5;
   }
 
   #post pre.terminal code {
-    background-color: #333;
   }
 
 #related {
