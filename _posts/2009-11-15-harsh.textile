@@ -16,9 +16,9 @@ Cannibalizing a few components I'm now blogging and working from this:
 The best part is that to turn it on and off you just need to touch a screwdriver to a couple leads.  Now if I can just find an old pizza box to stick this in I'd be in business.
 
 <center>
-<img src="images/desk1.jpg" style="width: 800px;"/>
+<img src="/images/desk1.jpg" style="width: 800px;"/>
 <br/>
-<img src="images/desk2.jpg" style="width: 800px;"/>
+<img src="/images/desk2.jpg" style="width: 800px;"/>
 </center>
 
 
