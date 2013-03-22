@@ -1,6 +1,6 @@
 ---
 layout: post
-title: If you want to bake <br/><br/> an apple pie from scratch <br/><br/> you must first invent <br/><br/>the universe
+title: If you want to bake an apple pie from scratch, you must first invent the universe
 ---
 
 h1. {{ page.title }}
