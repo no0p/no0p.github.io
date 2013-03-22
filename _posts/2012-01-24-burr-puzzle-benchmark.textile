@@ -5,7 +5,7 @@ title: Burr CPU Benchmark of Rackspace v. AWS
 
 h1. {{ page.title }}
 
-January  4 2012, 12:43 PM</span>
+p(meta). Jan 24 2012 - Oakland
 
 Lies, damned lies, and benchmarks.</p>
 
