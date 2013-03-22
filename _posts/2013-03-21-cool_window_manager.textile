@@ -10,6 +10,6 @@ p(meta). March 21, 2013 - Portland
 I found the lightweight, no distractions window manager I've been looking for today.  Here are some screenshots and configuration tips.
 
 
-```
+`
   apt-get install windowlab
-```
+`
