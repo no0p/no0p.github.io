@@ -7,9 +7,52 @@ h1. {{ page.title }}
 
 p(meta). March 21, 2013 - Portland
 
-I found the lightweight, no distractions window manager I've been looking for today.  Here are some screenshots and configuration tips.
+I found the lightweight, no distractions window manager I've been looking for today: windowlab.
 
+Here is a picture of me writing this blog post in window lab.
 
-`
-  apt-get install windowlab
-`
+<img src="/images/window_lab_writing.png" width="700"/>
+
+h3. How to install
+
+@apt-get install windowlab@
+
+or check out the source at <a href="http://nickgravgaard.com/windowlab/">http://nickgravgaard.com/windowlab/</a>
+
+h3. Usage tips
+
+Any elite window manager should be completely unusable unless you've read at least a page of documenttion.  Fortunately this is the case with window lab which will greet you with a completely blank and unresponsive screen when you first start it.
+
+Top N usage tips:
+
+1. Hold right click to display the control on the top of the screen.
+2. F11 Full Screen Window
+3. Alt drag to resize windows
+4. Double click window handles to change Z value of window
+5. When active applications in menu, hold down left click and swipe over menu.
+
+Turns out there is not a lot to this window manager.
+
+h3. Configuration Tips
+
+First we need to hijack the config that will launch our x session and call our own script.  This involves changing the Exec key in the file @/usr/share/xsessions/windowlab.desktop@ for a relatively current ubuntu system.
+
+bc. [Desktop Entry]
+Encoding=UTF-8
+Name=WindowLab
+Comment=This session logs you into WindowLab
+Exec=/usr/bin/windowlab_start
+Icon=
+Type=Application
+
+The following are the contents of @/usr/bin/windowlab_start@
+
+bc. #!/bin/bash
+nitrogen --restore &
+conky -b &
+gnome-terminal &
+/usr/bin/windowlab
+
+Check the docs on nitrogen and conky for configuring those items.
+
+Well that's it.  I encourage you to try a cool new window manager like windowlab.
