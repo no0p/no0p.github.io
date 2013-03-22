@@ -7,9 +7,9 @@ h1. {{ page.title }}
 
 p(meta). Nov 15, 2009 - Los Angeles
 
-* Just when you've got a deadline *
+*Just when you've got a deadline*
 
-My computer decides to stop responding to elecricity.  In order to get things done I'm now working with what you might call a "special" computer.
+My computer decides to stop responding to elecricity.  In order to get things done I'm now working with a real winner of a computational device.
 
 Cannibalizing a few components I'm now blogging and working from this:
 
