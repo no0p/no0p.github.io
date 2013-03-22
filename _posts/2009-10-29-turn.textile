@@ -58,6 +58,4 @@ end
 
 In your rails directory, whether it be in a gem or vendor, you'll want to make a slight change to */lib/tasks/testing.rake*.  If you're using vim, you might use :%s/t.verbose = true/t.verbose = false/g to replace true with false when setting Rake::TestTask.verbose.
 
-*5.  A little more lipstick on the pig*
-
 
