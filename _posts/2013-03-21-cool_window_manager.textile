@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Window Lab
+title: X Window Manager Review -- Window Lab
 ---
 
 h1. {{ page.title }}

@@ -1,6 +1,6 @@
 ---
 layout: post
-title: If you want to bake an apple pie from scratch, you must first invent the universe
+title: A vim setup -- If you wan bake an apple pie from scratch
 ---
 
 h1. {{ page.title }}

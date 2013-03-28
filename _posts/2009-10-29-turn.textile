@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Delightful Test::Unit results with TURN 
+title: Cool Test::Unit results with TURN 
 ---
 
 h1. {{ page.title }}
