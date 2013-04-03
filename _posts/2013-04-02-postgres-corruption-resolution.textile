@@ -67,7 +67,7 @@ We note that the content field is extended, which is decompressed on retrieval c
 bc. 
 update docs set content = 'all was lost' where id in (select id from docs where chk(docs));
 
-This is rumored to be somewhat risky.  On the one hand you save the uncorrupted fields, but the corruption may be more extensive.
+This is rumored to be somewhat risky.  On the one hand you save the uncorrupted fields, but the corruption may be more extensive.  At the least it would be wise to rebuild your indexes if using this approach.
 
 h3.  Resolution Option B.
 
