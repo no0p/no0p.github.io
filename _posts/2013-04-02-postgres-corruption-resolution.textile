@@ -18,7 +18,7 @@ pg_dump: The command was: COPY public.docs (id, created_at, content, link_id,
 
 h3. Finding the offending tuples
 
-We first create an function which will return true when an exception is raised.  We use this function in a select to return the current tuple id.
+We first create a function which will return true when an exception is raised.  We use this function in a select to return the current tuple id.
 
 bc. create function chk(anyelement)
   returns bool 
