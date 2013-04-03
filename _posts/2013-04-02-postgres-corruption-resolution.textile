@@ -31,8 +31,7 @@ bc. create function chk(anyelement)
   $f$;
 
 &nbsp;
-bc. 
-# select ctid from docs where chk(docs);
+bc. # select ctid from docs where chk(docs);
 ctid     
 -------------
  (30826,6)
