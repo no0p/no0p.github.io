@@ -7,7 +7,7 @@ h1. {{ page.title }}
 
 p(meta). May 25, 2013 - Portland
 
-Like a complete application rewrite, switching relational database systems for a production application is rarely a good idea.  But sometimes you need to do it anyways.
+Like a complete application rewrite, switching relational database systems for a production application is rarely a good idea.  Sometimes you need to do it anyways.
 
 So, how do you migrate your data?  Here is a <a href="http://en.wikibooks.org/wiki/Converting_MySQL_to_PostgreSQL">complicated document</a> about it and here is another more official looking <a href="http://wiki.postgresql.org/wiki/How_to_make_a_proper_migration_from_MySQL_to_PostgreSQL">complicated document</a>.
 
@@ -28,6 +28,7 @@ select * from foreign_table_whatever;
 
 The queries execute quite fast, enabling a quick switch to a new application layer accessing your new database.  In a later blog post I'll address some of the architecture considerations for doing a staged migration.
 
+Unfortunately when it comes to stored procedures and triggers, be prepared to rewrite them in plpgsql.
 
 h2. A note for Mysql -> PG ETL systems
 
