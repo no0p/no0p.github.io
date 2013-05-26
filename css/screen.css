@@ -32,8 +32,12 @@ h1 {
 	margin-top: 55px;
 		
 }
+h2 {
+  color: #00f403;
+  font-size: 20pt;
+}
 
-h2, h3, h4, h5, h6 {
+h4, h5, h6 {
   color: #e5e5e5;
   font-size: 100%;
 }
@@ -187,7 +191,7 @@ ul.posts {
   }
 
   #post code {
-    color: #e5e5e5; 
+    color: #00f403;
     border: 1px solid #ddd;
     font-size: 95%;
     padding: 0 .2em;
