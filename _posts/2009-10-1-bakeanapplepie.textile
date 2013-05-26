@@ -1,6 +1,6 @@
 ---
 layout: post
-title: A vim setup -- If you wan bake an apple pie from scratch
+title: A vim setup -- If you want to bake an apple pie from scratch
 ---
 
 h1. {{ page.title }}
