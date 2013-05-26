@@ -24,11 +24,13 @@ The <a href="https://github.com/bdigital/mysql_fdw">mysql foreign data wrapper</
 Now you populate postgres tables with an analogous schema with:
 
 bc. 
-select * from foreign_table_whatever;
+insert into pg_table_whatever (select * from foreign_table_whatever);
 
 The queries execute quite fast, enabling a quick switch to a new application layer accessing your new database.  In a later blog post I'll address some of the architecture considerations for doing a staged migration.
 
 Unfortunately when it comes to stored procedures and triggers, be prepared to rewrite them in plpgsql.
+
+Also it's worth noting that you can create foreign tables based on queries against the remote mysql server -- conceptually like a "foreign view" rather than "foreign table."  This may come in handy if your postgres schema is substantially different from the mysql schema and you want to leverage the mysql server's query optimizer.  Again, see the mysql foreign data wrapper's documentation. 
 
 h2. A note for Mysql -> PG ETL systems
 
