@@ -33,7 +33,7 @@ bc. CREATE OR REPLACE FUNCTION
   ALTER TABLE jobs ADD CONSTRAINT one_active_assignment_only 
     EXCLUDE USING GIST (job_box(consumer_id, started_at, finished_at) WITH &&);
 
-Hey no problem!  Check out this cool demo on plane for inspiration.
+Hey no problem!  Check out this cool demo on a plane for inspiration.
 
 <center>
 <iframe width="560" height="315" src="http://www.youtube.com/embed/ak2yrfvwMks" frameborder="0" allowfullscreen></iframe>
