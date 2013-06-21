@@ -42,14 +42,16 @@ make
 
 h3. Dump Instructions.
 
-bc. mydumper --database mydb --user username --password PASSWORD --outputdir /backup/mydump --compress --compress-protocol --threads=2 -m
+bc. mydumper --database mydb --user username --password PASSWORD \
+  --outputdir /backup/mydump --compress --compress-protocol --threads=2 -m
 tar -cjf mybackup.tar.bz2 /backup/mydump
 
 h3. Restoration instructions.
 
 bc. scp mybackup.tar.bz2 ./
 tar -xjf mybackup.tar.bz2
-myloader --database mydb -o --threads 4 --compress-protocol -u usern -p PASSWORD -d backup/mydump
+myloader --database mydb -o --threads 4 --compress-protocol -u usern \
+  -p PASSWORD -d backup/mydump
 
 *Pro Tip #2:* Use 2X number of CPUS for thread count.
 
