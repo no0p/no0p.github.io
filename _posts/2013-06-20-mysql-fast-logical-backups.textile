@@ -1,13 +1,13 @@
 ---
 layout: post
-title: Fast Logical Backups for MySql
+title: Fast(er) Logical Backups for MySql
 ---
 
 h1. {{ page.title }}
 
 p(meta). June 20, 2013 - Portland
 
-Once a MySql database grows larger than 1GB, the tendency is for database dumps via mysqldump tend to take longer than several hours.  It's not unusual for these restores to take days.
+Once a MySql database grows larger than 1GB, the tendency is for database dumps via mysqldump to take longer than several hours.  It's not unusual for these restores to take days.
 
 There are a few options for dealing with this issue depending on your system needs.  Often the solutions are grouped as *logical backps* and *physical backups*.  This post addresses only fast logical backups.
 
