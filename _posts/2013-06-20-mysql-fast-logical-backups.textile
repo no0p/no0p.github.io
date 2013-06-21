@@ -20,7 +20,7 @@ On the plus side they are great for moving data between versions and configurati
 
 h2.  Preferred Solution: Mydumper
 
-Mydumper is a relatively straightforward application which simply parallelizes the embarasssingly parallel aspects of database dumps and restores.  You can expect a roughly linear performance improvement per number of CPU cores.
+Mydumper is a relatively straightforward application which parallelizes the embarassingly parallel aspects of database dumps and restores.  You can expect a roughly linear performance improvement per number of CPU cores.
 
 h3. Installation for ubuntu.
 
