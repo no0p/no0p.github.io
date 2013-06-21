@@ -40,11 +40,15 @@ cd mydumper-0.5.2
 cmake .
 make
 
+&nbsp;
+
 h3. Dump Instructions.
 
 bc. mydumper --database mydb --user username --password PASSWORD \
   --outputdir /backup/mydump --compress --compress-protocol --threads=2 -m
 tar -cjf mybackup.tar.bz2 /backup/mydump
+
+&nbsp;
 
 h3. Restoration instructions.
 
