@@ -51,8 +51,32 @@ bc. #!/bin/bash
 nitrogen --restore &
 conky -b &
 gnome-terminal &
+autokey &
+xmodmap -e 'keysym Super_L = mu mu mu'
+xmodmap -e 'clear Mod4'
 /usr/bin/windowlab
 
-Check the docs on nitrogen and conky for configuring those items.
+bc. sudo apt-get install nitrogen conky autokey
+
+Check the docs on nitrogen and conky for configuring those items.  In short, launch nitrogen manually once and select the background images you want, the --restore flag int the script above will preserve between sessions.  
+
+For conky, see /etc/conky where conky.conf resides and is full of options.  To set it to display to the background, set the own_window directive to no.
+
+Finally note @autokey@ is included.  We'll use that in the next section to map some useful hotkeys and setup a familiar application launcher which is such a great feature of gnome-3 and unity.
+
+h3.  Launcher
+
+There are quite a few cool application launchers, but gnome-do seems to have the best feature set.  For a lighter alternative checkout gmrun.
+
+bc. sudo apt-get install gnome-do
+
+Configuring the hotkey is a little tricker.  First we remap the super key to an unused character and clear any other mappings.  Note: These are the xmodmap entries tin the windowlab_start script above.
+
+Create a script in autokey with the following entry which invokes a short python script and assign to the super key:
+
+bc. import commands
+print commands.getstatusoutput('gnome-do')
+
 
 Well that's it.  I encourage you to try a cool new window manager like windowlab.
+
