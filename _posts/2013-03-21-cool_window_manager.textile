@@ -13,6 +13,8 @@ Here is a picture of me writing this blog post in window lab.
 
 <img src="/images/window_lab_writing.png" width="700"/>
 
+In this post I'll cover how to install windowlab on a modern ubuntu system and how to configure the best features from other desktop environments in windowlab desktop.
+
 h3. How to install
 
 @apt-get install windowlab@
