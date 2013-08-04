@@ -66,17 +66,33 @@ Finally note @autokey@ is included.  We'll use that in the next section to map s
 
 h3.  Launcher
 
-There are quite a few cool application launchers, but gnome-do seems to have the best feature set.  For a lighter alternative checkout gmrun.
+There are quite a few cool standalone application launchers, but @gnome-do@ seems to have the best feature set (For a lighter alternative checkout gmrun).
 
 bc. sudo apt-get install gnome-do
 
-Configuring the hotkey is a little tricker.  First we remap the super key to an unused character and clear any other mappings.  Note: These are the xmodmap entries tin the windowlab_start script above.
+Configuring the hotkey to be just the window, or super, key is a little tricker.  First we remap the super key to an unused character and clear any other mappings.  Note: These are the xmodmap entries tin the windowlab_start script above.
 
 Create a script in autokey with the following entry which invokes a short python script and assign to the super key:
 
 bc. import commands
 print commands.getstatusoutput('gnome-do')
 
+h3.  Volume Hotkeys
+
+You can use autokey to create script entries tied to the volume up / volume down buttons on the keyboard as well.  As long as you are using alsa, make script entries with the following content.
+
+Volume Down:
+
+bc. import commands
+print commands.getstatusoutput('amixer sset Master 5dB-')
+
+Volume Up:
+
+bc. import commands
+print commands.getstatusoutput('amixer sset Master 5dB+')
+
+
+h3.  Conclusion
 
 Well that's it.  I encourage you to try a cool new window manager like windowlab.
 
