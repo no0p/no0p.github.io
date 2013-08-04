@@ -56,11 +56,18 @@ xmodmap -e 'keysym Super_L = mu mu mu'
 xmodmap -e 'clear Mod4'
 /usr/bin/windowlab
 
+h3.  Utilities
+
+The start script references some utilities we'll need to install.
+
 bc. sudo apt-get install nitrogen conky autokey
 
-Check the docs on nitrogen and conky for configuring those items.  In short, launch nitrogen manually once and select the background images you want, the --restore flag int the script above will preserve between sessions.  
+Nitrogen helps manage background images and conky overlays cool status displays on the background.  Check the docs on nitrogen and conky for configuring those items.  In short, launch nitrogen manually once and select the background images you want, the --restore flag int the script above will preserve between sessions.  
 
-For conky, see /etc/conky where conky.conf resides and is full of options.  To set it to display to the background, set the own_window directive to no.
+For conky, see /etc/conky where conky.conf resides and is full of options.  To set it to display to the background, set the own_window directive to no.  And very importantly, check out <a href="https://www.google.com/search?q=conky+deviant+art&client=ubuntu&hs=Ril&channel=cs&source=lnms&tbm=isch&sa=X&ei=z7j-UZm8LqXUiwL53YG4CQ&ved=0CAkQ_AUoAQ&biw=1137&bih=503">what has been done with conky</a> in the community, there are some very very cool configurations.  
+
+<img src="/images/conky_gallery.png" width="700"/>
+
 
 Finally note @autokey@ is included.  We'll use that in the next section to map some useful hotkeys and setup a familiar application launcher which is such a great feature of gnome-3 and unity.
 
@@ -70,16 +77,16 @@ There are quite a few cool standalone application launchers, but @gnome-do@ seem
 
 bc. sudo apt-get install gnome-do
 
-Configuring the hotkey to be just the window, or super, key is a little tricker.  First we remap the super key to an unused character and clear any other mappings.  Note: These are the xmodmap entries tin the windowlab_start script above.
+Configuring the hotkey to be just the window key, or super key, is a little tricker.  First we remap the super key to an unused character and clear any other mappings.  Note: These are the xmodmap entries tin the windowlab_start script above.
 
-Create a script in autokey with the following entry which invokes a short python script and assign to the super key:
+Run autokey and use the gui to create a script (assigned to super key) with the following entry which invokes a short python script:
 
 bc. import commands
 print commands.getstatusoutput('gnome-do')
 
-h3.  Volume Hotkeys
+h3.  Additional Hotkeys
 
-You can use autokey to create script entries tied to the volume up / volume down buttons on the keyboard as well.  As long as you are using alsa, make script entries with the following content.
+You can use autokey to create script entries tied to the *volume up / volume down* buttons on the keyboard as well.  As long as you are using alsa, make script entries with the following content.
 
 Volume Down:
 
@@ -90,6 +97,11 @@ Volume Up:
 
 bc. import commands
 print commands.getstatusoutput('amixer sset Master 5dB+')
+
+Additionally we can create an entry for the print screen key:
+
+bc. import commands
+print commands.getstatusoutput('gnome-screenshot')
 
 
 h3.  Conclusion
