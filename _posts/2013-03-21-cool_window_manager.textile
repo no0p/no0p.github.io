@@ -126,6 +126,12 @@ Save the script somewhere and invoke it in the @windowlab_start@ script created 
 
 &nbsp;
 
+h3.  Application Menu
+
+Edit the file @/etc/X11/windowlab/windowlab.menurc@
+
+&nbsp;
+
 h3.  Conclusion
 
 Well that's it.  I encourage you to try a cool new window manager like windowlab.
