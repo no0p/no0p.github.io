@@ -90,6 +90,10 @@ print commands.getstatusoutput('gnome-do')
 
 &nbsp;
 
+Finally note that you will need to disable gnome-do's hotkey in the gnome-do preferences.
+
+&nbsp;
+
 h3.  Additional Hotkeys
 
 You can use autokey to create script entries tied to the *volume up / volume down* buttons on the keyboard as well.  As long as you are using alsa, make script entries with the following content.
@@ -108,6 +112,17 @@ Additionally we can create an entry for the print screen key:
 
 bc. import commands
 print commands.getstatusoutput('gnome-screenshot')
+
+&nbsp;
+
+h3.  Dual Monitors
+
+Use the @arandr@ tool to generate an xrandr script.  
+
+bc. sudo apt-get install arandr
+./arandr
+
+Save the script somewhere and invoke it in the @windowlab_start@ script created above before beginning launching windowlab.  Will require restart, though I did not try sending any signals to windowlaw process.
 
 &nbsp;
 
