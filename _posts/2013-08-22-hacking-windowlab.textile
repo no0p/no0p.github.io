@@ -1,0 +1,58 @@
+---
+layout: post
+title: Customizing Windowlab
+---
+
+h1. {{ page.title }}
+
+p(meta). August 22, 2013 - Portland
+
+This post covers how to hack windowlab, the clean and fast window manager featured in <a href="http://no0p.github.io/2013/03/21/cool_window_manager.html">an earlier blog post</a>.
+
+We'll be targeting an ubuntu system, and updating the window manager to focus on new created windows.  The amiga style window focusing mechanism is great and this modification only changes focus on new window creation to the new window.
+
+h3.  Download Source
+
+bc. wget http://nickgravgaard.com/windowlab/windowlab-1.40.tar && tar -xf windowlab-1.40.tar
+
+
+h3.  Install Dependencies
+
+bc. sudo apt-get libxext-dev libx11-dev windowlab
+
+
+h3.  Modify Build Params
+
+Update @Makefile@ parameter for the conf dir
+
+bc. CONFDIR = /etc/X11/windowlab
+
+
+Update @windowlab.h@ def to be a font currently installed.  Use xlsfonts to pick a nice one.
+
+bc. #define DEF_FONT "-misc-fixed-medium-r-semicondensed--13-120-75-75-c-60-iso8859-1"
+
+
+h3.  Update Source
+
+Look for a code block in @new.c@ like the following and add the comments as below.
+
+bc. // if no client has focus give focus to the new client
+  //if (focused_client == NULL)
+  //{
+    check_focus(c);
+    focused_client = c;
+  //}
+
+h4.  Build and Replace Binary
+
+bc. make
+mv /usr/bin/windowlab /usr/bin/windowlab_sys
+cp ./windowlab /usr/bin/windowlab
+
+
+Restart your session.  
+
+
+
+
