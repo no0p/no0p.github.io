@@ -54,6 +54,10 @@ p {
   margin: 1em 0;
 }
 
+.green_text {
+  color: #00f403;
+}
+
 a {
   color: #e5e5e5;
 }
@@ -123,6 +127,18 @@ ul.posts {
   .site .title a:hover {
     text-decoration: underline;  
 }
+
+table.books td {
+	padding-top: 10px;
+	padding-left: 20px;
+}
+
+
+.books_image {
+	width: 200px;
+}
+
+
 #other a {
   color: #00f403;
 }
