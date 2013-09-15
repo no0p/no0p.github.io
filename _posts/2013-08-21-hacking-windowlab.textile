@@ -66,9 +66,13 @@ The problem is known as <a href="http://en.wikipedia.org/wiki/Bin_packing">bin p
 
 The key considerations for the approach implemented:
 
-- Sublinear time.
-- Easy to Implement.
+* Sublinear time.
+* Easy to Implement.
 
 The approach which meets these needs are the class of solutions called Shelving algorithms.  In this case it is a shelving algorithm which has a roughly geometrically window size change as a shelf approaches the right boundary.
 
 Implementation <a href="https://github.com/no0p/windowlab/blob/master/taskbar.c#L444">is here</a> and of course feel free to download an use this version of window lab for the features above.  Currently the tiling function is triggered by "Alt-tab."
+
+<center><img src="/images/sublin.jpg" width="300"/></center>
+
+
