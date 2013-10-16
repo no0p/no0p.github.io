@@ -79,6 +79,10 @@ table {
 /*
 /*****************************************************************************/
 
+ul li {
+	color: #00f403;
+}
+
 ul.posts {
   list-style-type: none;
   margin-bottom: 2em;

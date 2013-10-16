@@ -58,6 +58,21 @@ cp ./windowlab /usr/bin/windowlab
 
 Restart your session.  
 
+h3.  Adding Tiling
 
+A tiling feature resizes and moves windows such that no two windows are overlapping and all windows are visible.  This gives you a high level view of what is open.  Of course many of the feature rich window managers have this feature in spades with animations, but let's consider adding a simple implementation to window lab for now.
+
+The problem is known as <a href="http://en.wikipedia.org/wiki/Bin_packing">bin packing</a>, and I've read it is NP-Hard.  There are a whole bunch of algorithms and interesting approaches to the problem out there and it's a fun one to think about.
+
+The key considerations for the approach implemented:
+
+* Sublinear time.
+* Easy to Implement.
+
+The approach which meets these needs are the class of solutions called Shelving algorithms.  In this case it is a shelving algorithm which has a roughly geometrically window size change as a shelf approaches the right boundary.
+
+Implementation <a href="https://github.com/no0p/windowlab/blob/master/taskbar.c#L444">is here</a> and of course feel free to download an use this version of window lab for the features above.  Currently the tiling function is triggered by "Alt-tab."
+
+<center><img src="/images/sublin.jpg" width="300"/></center>
 
 
