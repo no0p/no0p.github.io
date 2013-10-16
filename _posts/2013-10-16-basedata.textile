@@ -1,0 +1,15 @@
+---
+layout: post
+title: Data for Modeling in Relational Systems
+---
+
+h1. {{ page.title }}
+
+p(meta). Octo 16, 2013 - Portland
+
+Sometimes you need some 'testing' data for exploring concepts and technology.  And if you happen to be working with a relational database, sometimes it is nice to have this data in the form ddl and dml SQL statements.
+
+The R statistical environment has an excellent built in data() function which returns a bunch of experimental data tied to libraries and documentation examples.  I wrote a short script as a personal exercise in procedural R coding to generate the SQL from the R data() sets.  It is available below.
+
+<div class="github-card" data-user="no0p" data-repo="base_data" data-width="400" data-height="150"></div>
+<script src="http://lab.lepture.com/github-cards/widget.js"></script>
