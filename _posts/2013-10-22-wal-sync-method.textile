@@ -1,0 +1,10 @@
+---
+layout: post
+title: Testing WAL sync method
+---
+
+h1. {{ page.title }}
+
+p(meta). Octo 25, 2013 - Portland
+
+
