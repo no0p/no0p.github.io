@@ -17,7 +17,7 @@ bc. sudo apt-get install cmake postgresql-plpython-9.1 pgxnclient
 
 If you installed from source ensure that the plpython language is present in /src/pl/
 
-pgxn is a handy package repo for postgres extensions.  Madlib is a shinning example of how it can make life easier.
+pgxn is a handy package repo for postgres extensions.  Madlib is a shining example of how it can make life easier.
 
 h2.  Installation
 
