@@ -7,7 +7,7 @@ h1. {{ page.title }}
 
 p(meta). Octo 27, 2013 - Portland
 
-The concept of doing in database has a lot of promise and of course a long history too.  Madlib is an offering from the Berkeley database group which provides a nice grab bag of modeling functions in the form of a postgresql extension.  Until recently the install process has been somewhat onerous with official instructions limited to centOs.  Below is an approach for installing madlib on an ubuntu system.
+The concept of doing in-database modeling has a lot of promise and of course a long history too.  Madlib is an offering from the Berkeley database group which provides a nice grab bag of modeling functions in the form of a postgresql extension.  Until recently the install process has been somewhat onerous with official instructions limited to centOs.  Below is an approach for installing madlib on an ubuntu system.
 
 h2.  Dependencies
 
