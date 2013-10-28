@@ -1,0 +1,37 @@
+---
+layout: post
+title: Seamless Logistic Regression
+---
+
+h1. {{ page.title }}
+
+p(meta). xxx, 2013 - Portland
+
+Training and using statistcal models with your production data has never been easier.  
+
+I can remember a time when a simple analysis required many steps such as writing reports to format data, exporting data, building models in R and then of course making predictions by again querying data, applying a model, and then joining the output with foreign keys in database -- all while suffering through performance issues.  The length of that sentence captures the point.
+
+So it's not surprising that work on in database analytics was developed a long time ago, and is now readily accessible.  In this post we'll build a logistic regression model exactly as we might in an R tutorial in our postgresql database.
+
+h2.  Preliminaries
+
+1.  install import a dump of example data from <a href="http://no0p.github.io/2013/10/16/basedata.html">Relational Modeling Data</a>.
+
+2.  install madlib <a href="http://no0p.github.io/2013/10/27/madlib-ubuntu.html">Madlib Install Instructions</a>.
+
+h2.  Building a model
+
+First train the model, in this case we use the mtcars dataset.
+
+In particular we will predict whether a car is a manual or automatic transmission based on the horsepower (hp), rear axle ratio(drat), and number of cylinders(cyl), and weight (wt).
+
+bc. select logregr_train('rdata.mtcars', 'mtcarslogtrainb', '(am <> 0)', 'ARRAY[1, hp, drat, cyl, wt]', NULL, 20, 'irls');
+
+
+h2. Predicting
+
+bc. select id, logregr_predict(ARRAY[1, hp, drat, cyl, wt], m.coef) as prediect from rdata.mtcars, mtcarslogtrain m;
+
+
+
+
