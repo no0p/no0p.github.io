@@ -26,8 +26,7 @@ The following packages have unmet dependencies:
  postgresql-plpython3-9.3 : Depends: libpython3.2 (>= 3.2~a4) but it is not installable
 E: Unable to correct problems, you have held broken packages.
 
-
-Here's the problem.  I'm using backported packages, and I know I have libpython3.3 installed.  The -f and -m flags to apt-get do nothing.  Scared yet?
+p.  Here's the problem.  I'm using backported packages, and I know I have libpython3.3 installed.  The -f and -m flags to apt-get do nothing.  Scared yet?
 
 To get this running we can the assumptions in the working environment by building and installing a fake package.
 
@@ -40,6 +39,8 @@ vi libpython3.2
 equivs-build libpython3.2
 sudo dpkg -i libpython3.2_3.2~a4_all.deb
 sudo apt-get install postgresql-plpython3-9.3
+
+p. Problem solved.
 
 
 <center>
