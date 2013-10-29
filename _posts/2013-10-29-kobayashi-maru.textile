@@ -41,6 +41,7 @@ sudo dpkg -i libpython3.2_3.2~a4_all.deb
 sudo apt-get install postgresql-plpython3-9.3
 
 
+
 h2. Problem solved.
 
 Creating a fake package seems to be a decent way to get aptitude to leave you alone.  Obviously hollow dependencies can cause problems so use discretion.  Nonetheless this is at least one solid tool to deal with broken aptitude dependencies.
