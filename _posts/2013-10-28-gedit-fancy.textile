@@ -50,6 +50,10 @@ Now the hotkey will launch vim and jump to the tag which matches the selection.
 
 A <a href="https://wiki.gnome.org/Apps/Gedit/Plugins/ExternalTools">full list of gedit environment variables is available</a> which makes it easy to add hotkeys to open a file in vim, launch commands, and go to web pages with a favorite web browser.
 
+Consider this external tool 
+
+@chromium-browser "http://www.postgresql.org/search/?submit=Search&q="$GEDIT_SELECTED_TEXT &@
+
 How easy is that?!
 
 
