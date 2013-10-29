@@ -56,9 +56,11 @@ Consider this external tool
 
 How easy is that?!
 
+h2.  Viper Mode
 
+Finally consider activating the Command Mode plugin.  It offers your favorite vi command mode tools with @Ctrl-.@
 
-  
+Find, Find and Replace, Open File... It's all there.
 
 
 
