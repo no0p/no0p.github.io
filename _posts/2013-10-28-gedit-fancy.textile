@@ -20,9 +20,9 @@ Anyways, in this post I'm reviewing my somewhat complicated notes for tricking o
 h2.  Install Dependencies
 
 bc. apt-get install gedit-plugins gedit-dev exuberant-ctags
-git clone git@github.com:SimonSapin/gedit-source-code-browser.git
+git clone git@github.com:no0p/gedit-source-code-browser.git
 
-Note that the original repo is <a href="https://github.com/Quixotix/gedit-source-code-browser">here</a> but you should use the python3 branch at the repo in the code block above, unless integrated in.
+Note that the repo is <a href="https://github.com/no0p/gedit-source-code-browser">here</a> but you should use the python3 branch at the repo in the code block above, unless integrated in.
 
 h2.  Source Code Browser
 
@@ -33,6 +33,8 @@ This plugin adds an additional tab next to the file explorer in gedit with ctag 
 </center>
  
 Well, follow the readme instructions in the <a href="https://github.com/Quixotix/gedit-source-code-browser/blob/master/README.markdown">readme</a> for the plugin.  Be sure you installed the dependencies above as it will fail mysteriously without gedit-dev.
+
+Note this plugin is modified that when you double click on a symbol it will automically load vim with the tag as an argument.  Ensure that you generate a tags file with ctags and that you have an appropriate tags path in vimrc.
 
 h2.  External Tools Example
 
