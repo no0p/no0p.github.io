@@ -1,6 +1,7 @@
 ---
 layout: post
 title: Testing WAL sync method
+categories: [postgresql]
 ---
 
 h1. {{ page.title }}

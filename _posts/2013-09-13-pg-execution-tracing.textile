@@ -1,6 +1,7 @@
 ---
 layout: post
 title: Inspecting Postgresql at Runtime
+categories: [postgresql]
 ---
 
 h1. {{ page.title }}

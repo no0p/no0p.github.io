@@ -14,7 +14,7 @@ layout: nil
    <email>berrydigital@gmail.com</email>
  </author>
 
- {% for post in site.posts %}
+{% for post in site.categories.postgresql %}
  <entry>
    <title>{{ post.title }}</title>
    <link href="http://no0p.github.com{{ post.url }}"/>

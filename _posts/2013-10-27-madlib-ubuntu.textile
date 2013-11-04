@@ -1,6 +1,7 @@
 ---
 layout: post
 title: Installing madlib on ubuntu
+categories: [postgresql]
 ---
 
 h1. {{ page.title }}

@@ -1,6 +1,7 @@
 ---
 layout: post
 title: Geometric Exclusion Constraints 
+categories: [postgresql]
 ---
 
 h1. {{ page.title }}

@@ -1,6 +1,7 @@
 ---
 layout: post
 title: Data for Modeling in Relational Systems
+categories: [postgresql]
 ---
 
 h1. {{ page.title }}

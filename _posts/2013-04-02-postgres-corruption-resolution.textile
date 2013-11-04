@@ -1,6 +1,7 @@
 ---
 layout: post
 title: Postgresql Corrupted Tuples 
+categories: [postgresql]
 ---
 
 h1. {{ page.title }}
