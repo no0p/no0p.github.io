@@ -18,7 +18,7 @@ h3. bg workers are good for programs you want running whenever your database is 
 
 Consider autovacuum, bgwriter, checkpointer..., most or perhaps all of the built-in background workers also deal with spreading out the load caused by resource intensive tasks.  By removing these tasks from normal backend operations load can spread with more flexibility.  
 
-h3. background workers are good for tasks that spread resources intensive taks out over time. 
+h3. background workers are good for tasks that spread resources intensive tasks out over time. 
 
 Of course, there are surely other motivations for using background workers.  A background worker would be perfect for channeling half cents from numeric columns into a secret account like in Superman 3.
 <center>
