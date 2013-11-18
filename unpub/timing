@@ -1,0 +1,4 @@
+pg_test_timing....  what does the resulting fields in pg_stat_database usef for internally
+
+unrelated:
+consider adding costs to output of explain, possibly with new option like PARAMS...groundwork for dynamic costs.
