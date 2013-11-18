@@ -8,7 +8,7 @@ h1. {{ page.title }}
 
 p(meta). Nov 18, 2013 - Portland
 
-The background worker facility is one of those cool open ended features in Postgre 9.3 with many possibilities.  This post shares some thoughts on potential interesting use cases for the facility with implementation details from developing a <a href="https://github.com/no0p/alps">prototype background worker: ALPS</a>.
+The background worker facility is one of those cool open ended features in Postgresql 9.3 with many possibilities.  This post shares some thoughts on potential interesting use cases for the facility with implementation details from developing a <a href="https://github.com/no0p/alps">prototype background worker: ALPS</a>.
 
 h2.  What are good tasks for BG workers?
 
