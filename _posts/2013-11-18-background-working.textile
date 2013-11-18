@@ -61,7 +61,7 @@ Indexes:
     "mtcars_pkey" PRIMARY KEY, btree (id)
 
 
-p. Assuming we have installed ALPS, the schema for this table will be modified to include additional columns which are the column names with a suffix of *__predicted*.  A linear model will be trained for and will prepopulate values.  It will be transformed into:
+p. Assuming we have installed ALPS, the schema for this table will be modified to include additional columns which are the column names with a suffix of *__predicted*.  A linear model will be trained and values will be populated.  It will be transformed into:
 
 bc.. # \d rdata.mtcars
                                  Table "rdata.mtcars"
