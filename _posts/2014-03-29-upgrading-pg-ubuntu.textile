@@ -16,7 +16,7 @@ Most of the work is done by the *pg_upgrade* utility which ships with Postgresql
 
 Then pg_upgrade copies the data files to the target data directory.  It turns out the page format rarely changes so the file copying is straightforward.  This process is done with high fidelity, even preserving the target filesystems for tablespaces. 
 
-Reflecting on these details about how pg_upgrade works by copying the old database, it apparently does not need to write to the old database which makes it feel pretty safe.  In fact when testing, sending an interrupt pg_upgrade and aborting while copying page files did not cause a problem.
+Reflecting on these details about how pg_upgrade works by copying the old database, it apparently does not need to write to the old database which makes it feel pretty safe.  In fact when testing, sending an interrupt to pg_upgrade and aborting while copying page files did not cause a problem.
 
 For more core concepts take a look at <a href="http://www.postgresql.org/docs/9.3/static/pgupgrade.html">the official doucmentation for pg_upgrade</a> tool. 
 
@@ -69,7 +69,7 @@ p.  Note that the command references the full path of the pg_upgrade binary.  It
 
 If this command prints an error message see the section below titled Don't Panic.
 
-h2.  Starting new server
+h2.  Starting the new server
 
 Now update the configuration in @/etc/postgresql/9.3/main/postgresql.conf@.  Don't copy the old file as it will contain old data and config directory directives.  This is a great opportunity to review your GUCs.  
 
