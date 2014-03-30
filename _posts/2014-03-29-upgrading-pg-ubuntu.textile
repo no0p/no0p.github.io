@@ -32,7 +32,7 @@ sudo apt-get update
 sudo apt-get upgrade
 sudo apt-get install postgresql-9.3 postgresql-contrib-9.3
 
-p. We note that the debian packages will start the 9.3 server and configure it to run a port other than the port 9.1 is running on, likely 5433.
+p. We note that the debian packages will start the 9.3 server and configure it to run on a port other than the port 9.1 is running on, likely 5433.
 
 At this point, install any shared libraries which your 9.1 database has installed and are required for @CREATE EXTENSION@ commands to complete successfully.  For example, if your 9.1 system uses postGIS, install postGIS packages for the 9.3 system.  Identifying all extensions can be a laborious process since the pg_extension catalog table is scoped to the current database connection.  Nonetheless it is absolutely necessary since the upgrade will fail without properly installed libraries.
 
