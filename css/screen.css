@@ -15,6 +15,10 @@ html, body {
   height: 100%;
 }
 
+.imagedropshadow { padding: 5px; border: solid 1px #EFEFEF; }
+img.imagedropshadow { border: solid 1px #CCC; -moz-box-shadow: 1px 1px 5px #999; -webkit-box-shadow: 1px 1px 5px #999; box-shadow: 1px 1px 5px #999; }
+
+
 body {
   background: #FFFFFF url(/images/wild_olivia.png);
   font-family: 'Georgia', 'DejaVu Serif', 'Times', 'Times New Roman', serif
@@ -35,6 +39,7 @@ h1 {
 h2 {
   color: #00f403;
   font-size: 20pt;
+  margin-top: 40px;
 }
 h3 {
   color: #00f403;
@@ -79,8 +84,25 @@ table {
 /*
 /*****************************************************************************/
 
+table.posts {
+  margin-left: 40px;
+}
+
+tr.post_row {padding-top: 4px;}
+
+
+td.date {
+  text-align: right;
+  color: #00f403;
+}
+
 ul li {
 	color: #00f403;
+}
+
+
+td.post {
+  padding-left: 20px;
 }
 
 ul.posts {
@@ -104,10 +126,14 @@ ul.posts {
 /*
 /*****************************************************************************/
 
+td.trimage {
+  padding: 20px;
+}
+
 .site {
   font-size: 110%;
   text-align: justify;
-  width: 40em;
+  width: 42em;
   margin: 3em auto 2em auto;
   line-height: 1.5em;
 }
@@ -115,7 +141,11 @@ ul.posts {
 .title {
   font-size: 20pt;
   font-weight: bold;
-  margin-bottom: 2em;
+  float: right;
+}
+
+ol li {
+  color: #e5e5e5;
 }
 
 .subtitle {
