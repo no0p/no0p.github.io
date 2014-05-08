@@ -186,7 +186,7 @@ $\frac{\text{txid_current}_{n} - \text{txid_current}_{n-1}}{\Delta t_{sec}} \app
 And, fortunately, this is simple with the amazing feature that is <a href="http://www.postgresql.org/docs/9.3/static/tutorial-window.html">window functions</a>. 
 
 bc.. postgres=# select measured_at,
-              (current_tx_id - coalesce(lag(current_tx_id, 1) over w, current_tx_id)) / 
+              (current_tx_id - lag(current_tx_id, 1) over w) / 
                 extract( epoch from  (measured_at - lag(measured_at, 1) over w))::numeric 
                   as tx_sec 
             from heartbeats
