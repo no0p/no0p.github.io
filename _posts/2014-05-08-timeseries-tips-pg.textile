@@ -8,7 +8,7 @@ h1. {{ page.title }}
 
 p(meta). May 8, 2014 - Portland, OR
 
-This post is about some useful tips for querying time series in Postgresql.  It covers some of the features which make Postgresql a fun and effective database system for storing and analyzing time series: date functions, window functions, and series generating functions.
+This post covers some of the features which make Postgresql a fun and effective database system for storing and analyzing time series: date functions, window functions, and series generating functions.
 
 h2. What are time series?
 
