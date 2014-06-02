@@ -65,8 +65,8 @@ bc.. postgres=# select date_trunc('minute', measured_at) as mins, sum(activity_c
 
           mins          | sum 
 ------------------------+-----
- 2014-05-07 18:22:00-07 |  12
- 2014-05-07 18:23:00-07 |   8
+ 2014-05-07 18:22:00-07 |  44
+ 2014-05-07 18:23:00-07 |  16
 
 p.  Representations of the a theoretical continuous sample, actual samples, the aggregated samples from this section are pictured below.
 
