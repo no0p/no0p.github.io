@@ -209,6 +209,10 @@ table.books td {
       float: right;
       margin-right: 1em;
     }
+    
+    .site .footer .contactr td {
+      padding-right: 10px;
+    }
 
       .site .footer .contact a {
       }
