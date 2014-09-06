@@ -353,7 +353,7 @@ There is substantially more variance in the service times for EXT4.  Are the req
 
 h2.  "We add the element of scorched earth"
 
-<a href="https://www.youtube.com/watch?v=DXkI_AGXIZE"><img src="/images/spieslikeus.jpg" width="200" class="imagedropshadow" style="float:right; margin-left: 20px;"/></a>  To rule out the possibility of fsync lying, a test was run using the <A href="http://brad.livejournal.com/2116715.html">diskchecker.pl</a> tool.  Each Filesystem Ext4, Btrfs, and Btrfs mounted with compression passed the verification step.  
+<a href="https://www.youtube.com/watch?v=DXkI_AGXIZE#t=182"><img src="/images/spieslikeus.jpg" width="200" class="imagedropshadow" style="float:right; margin-left: 20px;"/></a>  To rule out the possibility of fsync lying, a test was run using the <A href="http://brad.livejournal.com/2116715.html">diskchecker.pl</a> tool.  Each Filesystem Ext4, Btrfs, and Btrfs mounted with compression passed the verification step.  
 
 This test involves physically unplugging the computer while it is writing a file.  
 
