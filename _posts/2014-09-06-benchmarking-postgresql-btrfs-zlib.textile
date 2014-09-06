@@ -1,12 +1,12 @@
 ---
 layout: post
 title: Btrfs considered ... helpful
-categories: 
+categories: [postgresql]
 ---
 
 h1. {{ page.title }}
 
-p(meta). Aug 27, 2014 - Portland, OR
+p(meta). Sep 6, 2014 - Portland, OR
 
 This post takes a look at Btrfs and its transparent compression mount option for storing data files in the context of a Postgresql tpc-b benchmark.
 
@@ -350,6 +350,12 @@ h2.  I thought these filesystems where storing the same data?
 </center>
 
 There is substantially more variance in the service times for EXT4.  Are the requests scheduled less efficiently?
+
+h2.  "We add the element of scorched earth"
+
+<a href="https://www.youtube.com/watch?v=DXkI_AGXIZE"><img src="/images/spieslikeus.jpg" width="200" class="imagedropshadow" style="float:right; margin-left: 20px;"/></a>  To rule out the possibility of fsync lying, a test was run using the <A href="http://brad.livejournal.com/2116715.html">diskchecker.pl</a> tool.  Each Filesystem Ext4, Btrfs, and Btrfs mounted with compression passed the verification step.  
+
+This test involves physically unplugging the computer while it is writing a file.  
 
 h2.  Wild conjecture about fsync implementations and implications
 
