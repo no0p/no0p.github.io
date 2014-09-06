@@ -114,7 +114,8 @@ Below are some memory statistics taken during the test runs at scale 1,800.
 
 bc.. # select testset.info,  avg(load_avg) as load_avg, 
     pg_size_pretty(avg(swap_free::numeric * 1024)) as swap_free_avg, 
-    pg_size_pretty(avg((pages_available::numeric * sys_stats.page_size))) as least_free_mem,  
+    pg_size_pretty(avg((pages_available::numeric * sys_stats.page_size))) 
+      as least_free_mem,  
     pg_size_pretty(avg(page_cache::numeric * 1024)) as max_page_cache_size
   from tests 
     inner join testset on testset.set = tests.set
@@ -240,15 +241,15 @@ SELECT * FROM checkpoints
 	
 timed_chkpnt | req_chkpnt | buffers_checkpoint | buffers_backend |        measured_at          
 -------------+- ----------+--------------------+-----------------+--------------------------
-           0 |          1 |                195 |              47 | 2014-09-03 23:35:51.2488
-           0 |          1 |               2983 |             174 | 2014-09-03 23:35:55.2819
-           0 |          1 |              12112 |             181 | 2014-09-03 23:36:27.5584
-           0 |          1 |              11511 |             200 | 2014-09-03 23:37:15.9649
-           0 |          1 |              11304 |             172 | 2014-09-03 23:38:04.3627
-           0 |          1 |               3271 |             153 | 2014-09-03 23:38:52.7681
-           0 |          1 |              11077 |             185 | 2014-09-03 23:39:46.1349
-           0 |          1 |              13044 |             229 | 2014-09-03 23:40:38.5806
-           0 |          1 |               1037 |             189 | 2014-09-03 23:41:27.9203
+           0 |          1 |                195 |              47 | 2014-09-03 23:35:51
+           0 |          1 |               2983 |             174 | 2014-09-03 23:35:55
+           0 |          1 |              12112 |             181 | 2014-09-03 23:36:27
+           0 |          1 |              11511 |             200 | 2014-09-03 23:37:15
+           0 |          1 |              11304 |             172 | 2014-09-03 23:38:04
+           0 |          1 |               3271 |             153 | 2014-09-03 23:38:52
+           0 |          1 |              11077 |             185 | 2014-09-03 23:39:46
+           0 |          1 |              13044 |             229 | 2014-09-03 23:40:38
+           0 |          1 |               1037 |             189 | 2014-09-03 23:41:27
 
 p.  
 
