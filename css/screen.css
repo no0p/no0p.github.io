@@ -88,12 +88,28 @@ table.posts {
   margin-left: 40px;
 }
 
+table.list_table td a {
+  color: #00f403;
+}
+
+table.list_table td {
+  padding-top: 20px;
+  padding-left: 10px;
+  color: white;
+}
+
 tr.post_row {padding-top: 4px;}
 
 
 td.date {
   text-align: right;
   color: #00f403;
+}
+
+td.figure_subtitle {
+  font-size: 10pt;
+  color: white;
+  text-align: center;
 }
 
 ul li {
