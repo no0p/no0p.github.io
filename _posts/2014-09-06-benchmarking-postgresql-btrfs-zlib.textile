@@ -477,7 +477,7 @@ These limited observations teach two an important lessons.
 
 First from a performance standpoint btrfs is a fine choice of filesystem for Postgresql tables, potentially yielding 2x tps gain in space sensitive applications on magnetic disks compared with EXT4.  
 
-Second, Benchmarking projects quickly turn into yak-shaving projects that result in little more than an appreciation of how little you know about the world around you.  In the end it's not entirely obvious what causes all the underlying performance differences.
+Second, Benchmarking projects quickly turn into yak-shaves.  And in the end it's not entirely obvious what causes all the underlying performance differences.
 
 
 
