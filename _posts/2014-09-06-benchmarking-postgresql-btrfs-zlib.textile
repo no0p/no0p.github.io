@@ -330,7 +330,7 @@ There appears to be a stronger observed relationship between the number of read 
 </center>
 
 
-h2.  I thought these filesystems where storing the same data?
+h2.  Are these filesystems storing the same data?
 
 <center>
   <table>
