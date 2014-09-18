@@ -164,12 +164,22 @@ gnuplot> plot sin(x)
 ...
 <rect x="0" y="0" width="600" height="480" fill="none"/>
 <defs>
-	<circle id='gpDot' r='0.5' stroke-width='0.5'/>
-	<path id='gpPt0' stroke-width='0.222' stroke='currentColor' d='M-1,0 h2 M0,-1 v2'/>
-	<path id='gpPt1' stroke-width='0.222' stroke='currentColor' d='M-1,-1 L1,1 M1,-1 L-1,1'/>
+  <circle id='gpDot' r='0.5' stroke-width='0.5'/>
+  <path id='Pt0' stroke-width='0.222' stroke='currentColor' d='M-1,0 h2 M0,-1 v2'/>
+  <path id='Pt1' stroke-width='0.222' stroke='currentColor' d='M-1,-1 L1,1 M1,-1'/>
 ...
 
 p.  The result can be displayed in most modern web browsers.  Further there are a number of "binding" libraries for various languages.  <a href="https://github.com/rdp/ruby_gnuplot">A nice ruby library</a> provides a simple DSL to generate plots from ruby objects.
+
+h2.  Is Gnuplot a Turing complete scripting language?
+
+I dont know.  But it has iteration.
+
+@plot@ supports an iteration parameter that can set variables which will be used by later parameters in an iterative fashion.  
+
+<center>
+  <img src="/images/gnu_plot_iteration.png"/>
+</center>
 
 h2.  Final Remarks
 

@@ -1,8 +1,0 @@
-
-h2.  &lt;iteration&gt;: a fancy plot parameter
-
-This parameter can set variables which will be used by later parameters in an iterative fashion.  
-
-<center>
-  <img src="/images/gnu_plot_iteration.png"/>
-</center>
