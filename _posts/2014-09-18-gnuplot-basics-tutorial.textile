@@ -134,7 +134,7 @@ This parameter can also be set to a filename which will load columnar data from 
   <img src="/images/a_line_file.png"/>
 </center>
 
-When referencing a data file, @using@ statement is a key modifier.  The immediate example above could have also been written reversing the axes with 
+When referencing a data file, a @using@ statement is a key modifier.  For example, you could reverse the axes in the immediate example above with the command:
 
 bc. plot "line.data" using 1:0 with lp
 
