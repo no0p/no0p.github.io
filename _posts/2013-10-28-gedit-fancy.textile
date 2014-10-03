@@ -34,7 +34,7 @@ This plugin adds an additional tab next to the file explorer in gedit with ctag 
  
 Well, follow the readme instructions in the <a href="https://github.com/Quixotix/gedit-source-code-browser/blob/master/README.markdown">readme</a> for the plugin.  Be sure you installed the dependencies above as it will fail mysteriously without gedit-dev.
 
-Note this plugin is modified that when you double click on a symbol it will automically load vim with the tag as an argument.  Ensure that you generate a tags file with ctags and that you have an appropriate tags path in vimrc.  @set tags=/path/to/tagfile@
+Note this plugin is modified that when you double click on a symbol it will automically load vim with the tag as an argument.  Ensure that you generate a tags file with ctags and that you have an appropriate tags path in vimrc.  @set tags=/path/to/tagfile@.  Of course to generate a basic tags file for the current directory: @ctags --recurse ./@.
 
 h2.  External Tools Example
 
