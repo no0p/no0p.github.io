@@ -21,15 +21,16 @@ img.imagedropshadow { border: solid 1px #CCC; -moz-box-shadow: 1px 1px 5px #999;
 
 body {
   background: #FFFFFF url(/images/wild_olivia.png);
-  font-family: 'Georgia', 'DejaVu Serif', 'Times', 'Times New Roman', serif
-	color: #e5e5e5;
-	font-size: 110%;
+  font-family: Ubuntu, Arial, Tahoma;
+	color: #a5a6a7;
+	font-size: 140%;
   text-align: center;
 }
 
 p {
-  color: #e5e5e5;
+  color: #a5a6a7;
 }
+
 h1 {
 	font-size: 160%;
 	color: #e5e5e5;
