@@ -1,14 +1,33 @@
-set terminal wxt size 1200,900
-set multiplot layout 2, 5 
+set terminal png size 2460,1340 x000000
+set size 0.4, 0.4
+set output '/tmp/elementary_functions.png'
+
+set linetype  2 lc rgb "dark-violet" lw 1
+set linetype  1 lc rgb "green" lw 1
+
+unset border
+unset xtics
+unset ytics
+#set border lw 1 lc rgb "#cccccc"
+#set xtics textcolor rgb "white"
+#set ytics textcolor rgb "white"
+#set xlabel textcolor rgb "white"
+#set ylabel textcolor rgb "white"
+set title textcolor rgb "white"
+set key textcolor rgb "white"
+
+
+
+set multiplot layout 3, 7 
 unset key
 set xtics nomirror scale 0
 set ytics nomirror scale 0
-set grid
+
 
 set title 'x'
 set xrange [-1:1]
 set xtics -1,1,1
-plot x
+plot x lt 1
 
 
 set title 'x^2'
@@ -47,7 +66,6 @@ plot sin(x)
 set title 'cos(x)'
 plot cos(x)
 
-set xrange [-1.1:1.1]
 set title 'tan(x)'
 plot tan(x)
 
@@ -60,8 +78,24 @@ plot acos(x)
 set title 'atan(x)'
 plot atan(x)
 
+set title 'sinh(x)'
+plot sinh(x)
 
 
+
+
+set xrange [-3:3]
+set title 'e^x'
+plot exp(x)
+
+set title 'e^-x'
+plot exp(-x)
+
+set title 'ln(x)'
+plot log(x)
+
+set title 'log_10(x)'
+plot log10(x)
 
 
 unset multiplot
