@@ -25,7 +25,7 @@ h2. Motivation
 
 There are a number of high quality monitoring and performance analysis tools for Postgresql.  Many of these involve a remote service which connects to Postgresql as a regular client, or an application that parses log files. 
 
-The presented framework uses a background worker to ship statistics to a remote service.  It aims to solve a grab bag of real or imagined problems discussed below.  Of course, this approach presents it's own problems and is thus best characterized as an experiment.
+The presented framework uses a background worker to ship statistics to a remote service.  It aims to solve a grab bag of real or imagined problems discussed below.  Of course, this approach presents its own problems and is thus best characterized as an experiment.
 
 h3. Live Monitoring
 
