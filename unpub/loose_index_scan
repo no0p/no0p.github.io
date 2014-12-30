@@ -1,0 +1,67 @@
+
+
+https://wiki.postgresql.org/wiki/Loose_indexscan
+
+
+
+Time: 293998.061 ms
+libpatent_development=# select count(*) from (select distinct archive_file from imports) as foo;
+ count 
+-------
+   140
+(1 row)
+
+Time: 3480.094 ms
+libpatent_development=# explain select distinct archive_file from imports;
+                                QUERY PLAN                                
+--------------------------------------------------------------------------
+ HashAggregate  (cost=477254.31..477255.69 rows=138 width=95)
+   ->  Seq Scan on imports  (cost=0.00..449410.25 rows=11137625 width=95)
+(2 rows)
+
+Time: 0.431 ms
+libpatent_development=# explain select count(distinct archive_file) from imports;
+                                QUERY PLAN                                
+--------------------------------------------------------------------------
+ Aggregate  (cost=477254.31..477254.32 rows=1 width=95)
+   ->  Seq Scan on imports  (cost=0.00..449410.25 rows=11137625 width=95)
+(2 rows)
+
+Time: 0.453 ms
+libpatent_development=# explain  select count(*) from (select distinct archive_file from imports) as foo;
+                                   QUERY PLAN                                   
+--------------------------------------------------------------------------------
+ Aggregate  (cost=477257.42..477257.43 rows=1 width=0)
+   ->  HashAggregate  (cost=477254.31..477255.69 rows=138 width=95)
+         ->  Seq Scan on imports  (cost=0.00..449410.25 rows=11137625 width=95)
+(3 rows)
+
+Time: 0.435 ms
+libpatent_development=# explain analyze select distinct archive_file from imports;
+                                                          QUERY PLAN                                                          
+------------------------------------------------------------------------------------------------------------------------------
+ HashAggregate  (cost=477254.31..477255.69 rows=138 width=95) (actual time=4263.718..4263.741 rows=140 loops=1)
+   ->  Seq Scan on imports  (cost=0.00..449410.25 rows=11137625 width=95) (actual time=0.010..1948.615 rows=11137625 loops=1)
+ Total runtime: 4263.779 ms
+(3 rows)
+
+Time: 4264.186 ms
+libpatent_development=# explain analyze select count(distinct archive_file) from imports;
+                                                          QUERY PLAN                                                          
+------------------------------------------------------------------------------------------------------------------------------
+ Aggregate  (cost=477254.31..477254.32 rows=1 width=95) (actual time=297601.359..297601.360 rows=1 loops=1)
+   ->  Seq Scan on imports  (cost=0.00..449410.25 rows=11137625 width=95) (actual time=0.008..1544.544 rows=11137625 loops=1)
+ Total runtime: 297601.399 ms
+(3 rows)
+
+Time: 297601.818 ms
+libpatent_development=# explain analyze select count(*) from (select distinct archive_file from imports) as foo;
+                                                             QUERY PLAN                                                             
+------------------------------------------------------------------------------------------------------------------------------------
+ Aggregate  (cost=477257.42..477257.43 rows=1 width=0) (actual time=4220.514..4220.514 rows=1 loops=1)
+   ->  HashAggregate  (cost=477254.31..477255.69 rows=138 width=95) (actual time=4220.478..4220.503 rows=140 loops=1)
+         ->  Seq Scan on imports  (cost=0.00..449410.25 rows=11137625 width=95) (actual time=0.011..1911.223 rows=11137625 loops=1)
+ Total runtime: 4220.562 ms
+(4 rows)
+
+Time: 4221.032 ms

@@ -1,0 +1,40 @@
+---
+layout: post
+title: Plotting Time Series in Postgresql
+categories: []
+---
+
+h1. {{ page.title }}
+
+p(meta). Dec 20, 2014 - Portland, OR
+
+This post demonstrates a technique for plotting <a href="http://no0p.github.io/postgresql/2014/05/08/timeseries-tips-pg.html">time series result sets</a> in Postgresql.  
+
+Plotting is a first step towards understanding a pattern in the time series which will suggest an appropriate forecasting technique.
+
+
+h2.  Plotpg
+
+<a href="http://no0p.github.io/plotpg/">Plotpg</a> is a postgresql extension which provides SQL functions to plot *result sets*.  
+
+The *plot* function takes an sql query as a parameter, executes the query, then generates a data set in the <a href="http://www.gnuplot.info/">gnuplot</a> format and a corresponding gnuplot script.  Gnuplot must be installed on the postgresql server.
+
+h2.  Horizontal Pattern
+
+
+
+h2.  Linear Trend Pattern
+
+
+h2.  Seasonal Pattern
+
+
+
+
+h2.  Final Remarks
+
+
+
+
+Plus plotting data with Postgresql is a fun idea with a long history <a href="http://www.postgresql.org/message-id/665DEE00-EB3F-40CF-8A31-5E02C943F3E9@silentmedia.com">dicusson on hackers</a>, <a href="https://lopsa.org/content/making-graphs-postgres-client-shell">A blog post on gnuplot/postgres</a>, <a href="http://www.postgresql.org/message-id/e7e0a2570712280436q3424441ava58e17c817aa75f0@mail.gmail.com">pl/r dicsussion on hackers</a>..
+
