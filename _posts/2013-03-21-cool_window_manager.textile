@@ -136,3 +136,11 @@ h3.  Conclusion
 
 Well that's it.  I encourage you to try a cool new window manager like windowlab.
 
+
+h3.  Update!
+
+Move @/usr/bin/nautilus@ into a different file, and create a shell script in its place to launch nautilus with the --no-desktop option to prevent strange behavior.  
+
+Further, consider using synapse rather than gnome-do, as the latter has fallen into questionable maintenance state.
+
+Additionally consider setting an environment variable GDK_CORE_DEVICE_EVENTS=1 to fix mouse scrolling issues.
