@@ -66,12 +66,12 @@ Implementing a dictionary required implementing just two functions.  <a href="ht
 
 Once these functions are implemented and installed, the dictionary can be added.
 
-bc.. CREATE TEXT SEARCH TEMPLATE dict_exclude_template (
+bc.. =# CREATE TEXT SEARCH TEMPLATE dict_exclude_template (
         LEXIZE = dict_exclude_lexize,
         INIT   = dict_exclude_init
 );
 
-CREATE TEXT SEARCH DICTIONARY dict_exclude (
+ =# CREATE TEXT SEARCH DICTIONARY dict_exclude (
   TEMPLATE = dict_exclude_template
 );
 
@@ -86,7 +86,7 @@ alter text search configuration ocr_gibberish
 p.  by adding a regular expression like @([^aeiouAEIOU]{5})@ to an exclude.rules file, some gibberish can be removed.
 
 bc.. =# select to_tsvector('ocr_gibberish', 
-              'Time is an illusion. sdfsdfsdf  Lunchtime doubly so.');
+                    'Time is an illusion. sdfsdfsdf  Lunchtime doubly so.');
 
                 to_tsvector                 
 --------------------------------------------
