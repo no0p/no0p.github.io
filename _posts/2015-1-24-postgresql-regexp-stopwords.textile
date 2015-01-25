@@ -83,14 +83,15 @@ alter text search configuration ocr_gibberish
     with dict_exclude, english_stem;
 
 
-p.  by adding a regular expression like @([^aeiouAEIOU]{3})@ to an exclude.rules file, some gibberish can be removed.
+p.  by adding a regular expression like @([^aeiouAEIOU]{5})@ to an exclude.rules file, some gibberish can be removed.
 
-bc.. =# select to_tsvector('ocr_gibberish', 
-                      'Time is an illusion. sdfsdfsdf  Lunchtime doubly so.');
+bc.. =# select to_tsvector('ocr_gibberish', 'Time is an illusion. sdfsdfsdf  Lunchtime doubly so.');
 
-                to_tsvector                 
---------------------------------------------
- 'Time':1 'an':3 'illusion':4 'is':2 'so':8
+                             to_tsvector                             
+---------------------------------------------------------------------
+ 'Lunchtime':6 'Time':1 'an':3 'doubly':7 'illusion':4 'is':2 'so':8
+(1 row)
+
 
 
 p. Additional details on using dict_exclude are available in the <a href="https://github.com/no0p/dict_exclude">project's readme.</a>
