@@ -1,0 +1,19 @@
+# LDA overview
+
+
+
+# Create vocabulary
+
+ts_vectors distinct
+
+# create document word count tables
+
+ts_vectors
+
+# train
+
+madlibfuncs
+
+# Predict
+
+madlibfuncs
