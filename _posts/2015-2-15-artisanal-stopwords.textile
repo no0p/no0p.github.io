@@ -60,7 +60,7 @@ bc.. =# select * from ts_stat('select content from composited_documents')
 
 p.  ts_stat is quite convenient, as it provides most of the information needed.
 
-h2.  <strike>Calculating</strike> Crafting a stop word list
+h2.  Crafting a stop word list
 
 A list of candidate stop words will be a result set ordered by a term's idf.  This will allow for farkling with a threshold value to exclude terms.  
 
