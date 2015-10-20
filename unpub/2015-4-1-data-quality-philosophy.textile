@@ -1,0 +1,93 @@
+---
+layout: post
+title: A Philosophy of Data Quality
+categories: []
+---
+
+h1. {{ page.title }}
+
+p(meta). April 2, 2015 - Portland
+
+Every datum is sacred.
+
+This post covers some of my notes for evaluating data quality and explores some of the techniques available for ensuring data quality in Postgresql.
+
+h3.  Measuring Data Quality
+
+A key goal in measuring data quality is to provide information for generating data quality rules.
+
+  * Nulls
+  * Nulls FK
+  * Min
+  * Max
+  * Business Domain Specific
+  * Types
+  * Domains
+  * Duplicates
+
+When 
+
+h3.  Hard and Soft Rules
+
+Hard rules are enforced constraints ensuring all records conform.  These include check constraints, unique constraints, null constraints, and type/domain constraints.  
+
+Soft rules are logical rules which are not enforced.  Rather violations of these rules are tracked in a meta data table.  Generally I like to have a table for every rule including a foreign key(s) and a timestamp for when the violation was identified.
+
+
+h3.  
+
+
+h3. Focus on attributes
+
+bc.. CREATE OR REPLACE FUNCTION dqs(target_schema text)
+  RETURNS table (table_name text, attribute text, null_fraction real, distinct_values real)
+    AS $$
+      BEGIN
+        RETURN QUERY SELECT tablename::text,
+                            attname::text,
+                            null_frac,
+                            n_distinct
+                       FROM pg_stats
+                         WHERE pg_stats.schemaname = target_schema;
+      END;
+$$ LANGUAGE plpgsql;
+
+p. 
+
+h3.  
+
+1.  Find extremes 
+
+with numeric metrics you can find outliers by reviewing the distribution of values.  
+
+For strings, a simple metric is the length of the string.  
+
+bc.. select percentile_cont(ARRAY[0.0001, 0.05, 0.25, 0.75, 0.95, 0.9999]) within group (order by length(name)) from people;
+
+p. 
+
+bc.. select * from people, (select avg(length(name)) as mean, stddev(length(name)) as stddev from people) foo where length(people.name) > (mean + (6 * stddev));
+
+p. 
+
+2.
+
+h3.  Understand the Source of the Errors
+
+
+
+h3.  Attribute Constraints
+
+  * Types / Domains
+  * Check Constraints
+
+h3.  Referential Integrity
+
+h3.  Unique Constraints
+
+h3.  Exclusion Constraints
+
+h3.  Soft Rules
+
+h3.  Business Rules
+
