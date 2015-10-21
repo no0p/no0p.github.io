@@ -1,6 +1,6 @@
 ---
 layout: 
-title: Record Linking
+title: Record Linking with Postgresql & Madlib
 categories: []
 ---
 <!doctype html>
@@ -293,6 +293,7 @@ madpack -p postgres -c user@0.0.0.0/db install
         <section>
           <h3>Madlib's M.O.</h3>
           <p>Create training tables, apply SQL function, use model tables</p>
+          <p><a href="http://doc.madlib.net/latest/group__grp__logreg.html">Madlib Logistic Regression Manual</a></p>
         </section>
         
         <section>
@@ -301,8 +302,9 @@ madpack -p postgres -c user@0.0.0.0/db install
             <img src="/images/link_example_d.png"/>
           </section>
           <section>
-            <p>Manually insert training examples</p>
-            <p>Leverage some linkable records, e.g. E.g. 20% of company_a and company_b records have an IRS TID you can link on, but still have representative typo and alternative spelling examples. </p>
+            <h3>Populate Training Examples</h3>
+            <p>Manually insert records into table.</p>
+            <p>Or leverage easily linkable records, e.g. 20% of company_a and company_b records have an IRS TID you can link on, but still have representative typo and alternative spelling examples. </p>
           </section>
         </section>
         
@@ -354,45 +356,80 @@ madpack -p postgres -c user@0.0.0.0/db install
         </section>
 				
         <section data-background="#000000">
+          <h3>Less Successful Model</h3>
           <img src="/images/link_example_k.png" style="background-color: #000; border: 0px; float: left"/>
+          <p style="font-size: 70%">
+				    <br/>
+				    $Accuracy = \frac{TP + TN}{TP + TN + FP + FN} = 0.99$<br/><br/>
+				    $Precision = \frac{TP}{TP + FP} = 0.914$<br/><br/>
+				    $Recall = \frac{TP}{TP + FN} = 0.662$
+				  </p>
+				  <p class="fragment">Model only had name string as a parameter.  Poor recall results.</p>
         </section>
 				
         <section>
+          <h2>Scoring Examples</h2>
           <img src="/images/link_example_l.png"/>
         </section>
         
         <section>
+          <h2>Scoring Examples</h2>
           <img src="/images/link_example_m.png"/>
         </section>
         
         <section>
+          <h2>Model Information Table</h2>
           <img src="/images/link_example_n.png"/>
         </section>
         
         <section>
-          <img src="/images/link_example_o.png"/>
-          <img src="/images/link_example_p.png"/>
+          <div style="float: left;">
+            <img src="/images/link_example_o.png" style=" width: 350px"/>
+            <br/>
+            <img src="/images/link_example_p.png" style="width: 350px"/>
+          </div>
+          <div style="margin-left: 400px;">
+            <p style="text-align: left;">
+  - Does not require application changes<br/>
+  - Preserves Original Information<br/>
+  - Separates Speculation From Source Data<br/>
+  - Easy to update<br/>
+  - “Probabilistic Foreign Key” Sounds Cool<br/>
+  - Reasonably Painless Access Pattern<br/>
+  - Duplication and Linking Case<br/>
+  - Pluggable Solutions<br/>
+  - Manual Review<br/>
+            </p>
+          </div>
         </section>
         
         <section>
-          M*N ~ (N^2) pair comparisons to find best match
-Compare only against best candidates
-Indexable value that can exclude candidates
-trigram distance
-Geographic restriction
-Kmeans cluster id
-LSH bucket 
-Probably OK to have fairly loose comparison set
-With 100,000,000 records, comparing 100,000,000 * 100 is quite a bit faster than 100,000,000 * 100,000,000.  
+          <h3>What about that cross product?</h3>
+          
+          <p style="text-align: left; margin-left: 0px;">- M*N ~ (N^2) pair comparisons to find best match</p>
+          <p style="text-align: left; margin-left: 0px;">- Compare only against best candidates</p>
+          <p style="text-align: left; margin-left: 40px;">- Indexable value that can exclude candidates</p>
+      <p style="text-align: left; margin-left: 80px;">- trigram distance</p>
+      <p style="text-align: left; margin-left: 80px;">- Geographic restriction</p>
+      <p style="text-align: left; margin-left: 80px;">- Kmeans cluster id</p>
+      <p style="text-align: left; margin-left: 80px;">- LSH bucket</p>
+  <p style="text-align: left; margin-left: 0px;">- Probably OK to have fairly loose comparison set</p>
         </section>
         
         <section>
-           dentify Problem as multiple records for same entity without a key
-Set of true pairs in A X B
-Binary Classification of pairs
-Solve binary classification in Postgresql with Madlib logistic regression module
-String metric features & features from relations
-Create probabilistic foreign keys
+          <section>
+             <p>Identify Problem as multiple records for same entity without a key</p>
+             <p class="fragment">This can be formulated as a binary classification of paired records as members of a set of true pairs or false pairs in A X B</p>
+          </section>
+          <section>
+             <p>Solve binary classification in Postgresql with Madlib logistic regression module</p>
+             <p class="fragment">String metric features & features from relations</p>
+          </section>
+          <section>
+            <p>Create probabilistic foreign keys</p>
+            <p class="fragment">Manually review close calls</p>
+          </section>
+
         </section>
         
 				<section style="text-align: left;" data-background="/images/recycling.jpg">
