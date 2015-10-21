@@ -1,0 +1,434 @@
+---
+layout: 
+title: Record Linking
+categories: []
+---
+<!doctype html>
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8">
+
+		<title>Record Linking</title>
+
+		<meta name="description" content="A framework for easily creating beautiful presentations using HTML">
+		<meta name="author" content="Hakim El Hattab">
+
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+
+		<link rel="stylesheet" href="/css/reveal.css">
+		<link rel="stylesheet" href="/css/theme/night.css" id="theme">
+
+		<!-- Code syntax highlighting -->
+		<link rel="stylesheet" href="/css/zenburn.css">
+
+		<!-- Printing and PDF exports -->
+		<script>
+			var link = document.createElement( 'link' );
+			link.rel = 'stylesheet';
+			link.type = 'text/css';
+			link.href = window.location.search.match( /print-pdf/gi ) ? '/css/print/pdf.css' : '/css/print/paper.css';
+			document.getElementsByTagName( 'head' )[0].appendChild( link );
+		</script>
+
+    <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+    </script>
+  
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]},
+        "HTML-CSS": {
+
+          scale: 150
+          
+        }
+      });
+    </script>
+
+		<!--[if lt IE 9]>
+		<script src="lib/js/html5shiv.js"></script>
+		<![endif]-->
+	</head>
+
+	<body>
+
+		<div class="reveal">
+
+			<!-- Any section element inside of this container is displayed as a slide -->
+			<div class="slides">
+				<section>
+					<h1>Record Linking</h1>
+					<h3>Entity Resolution with Postgresql & Madlib</h3>
+					<p>
+						<small>Created by <a href="http://no0p.github.io">Robert Berry</a> / <a href="http://twitter.com/no0p_">@no0p_</a></small>
+					</p>
+				</section>
+
+				<section data-background="/images/dump.jpg">
+					<h2>The world is full of messy data</h2>
+					<p>Record linking solves one specific data quality problem.</p>
+				</section>
+
+				<!-- Example of nested vertical slides -->
+				<section>
+					<section>
+						<h2>Record Linking is ...</h2>
+
+						<p style="margin-left: 200px; text-align: left;">Two or more records,</p>
+						<p style="margin-left: 200px; text-align: left; padding-left: 80px;"> referencing the same entity,</p>
+						<p style="margin-left: 200px; text-align: left; padding-left: 160px;"> without a key.</p>		
+					</section>
+					<section>
+						<h2>Don't take my word for it</h2>
+						<blockquote cite="https://en.wikipedia.org/wiki/Record_linkage">
+						&ldquo;Record linkage refers to the task of finding records in a data set that refer to the same entity across different data sources. <br/><br/> Record linkage is necessary when joining data sets based on entities that may or may not share a common identifier&rdquo;
+					</blockquote>
+					<p><a href="https://en.wikipedia.org/wiki/Record_linkage">Wikipedia on Record Linkage</a></p>
+					</section>
+					<section>
+						<img src="/images/drevillinking.jpg"/>
+					</section>
+					
+				</section>
+
+				<section>
+					<h4>Some records in these tables refer to the same entity</h4>
+					<table>
+					  <tr>
+					    <td><img src="/images/link_example_a.png"/></td><td><img src="/images/link_example_b.png"/></td>
+					  </tr>
+					</table>
+					<p class="fragment">But how can we discern which are matches without a key?</p>
+				</section>
+
+
+		
+				<section id="name_and_conquer">
+					<h2>Name & Conquer</h2>
+					<p>Label the records in table1 as set <strong>A</strong>, the records in table2 as set <strong>B</strong>.</p>
+          <p class="fragment">Define a set of possible matches as <strong>A</strong> X <strong>B</strong>, such that each pair (a∈A,b∈B) is a possible match or non-match.</p>
+          <p class="fragment">The set of true pairs is labeled set <strong>T</strong> where (a=b), and the set of false pairs is labeled set <strong>F</strong> where (a≠b).</p>
+          <p class="fragment">Solve the problem by distinguishing whether a given pair belongs to set <strong>T</strong> or set <strong>F</strong>.</p>
+          <p class="fragment"><strong>T</strong> and <strong>F</strong> are a partition of <strong>A</strong> X <strong>B</strong>.</p>
+				</section>
+			
+
+				<section id="concrete_pairs">
+					<h3>In other words</h3>
+					<h4>each tuple in the cross join is either a true pair or a false pair </h4>
+					<img src="/images/link_example_c.png"/>
+				</section>
+
+				<section>
+					<section>
+						<h2>A Binary Classification Problem</h2>
+						<p>Which is resolved by a function returning the probability that any old tuple from <strong>A</strong> and any old tuple from <strong>B</strong> are a true pair.</p>
+						<br/>
+						<p class="fragment">
+							$P(truepair) = f(a, b)$
+            </p>
+			  	</section>
+					<section>
+						<h4>This is probably not the "function" you are looking for</h4>
+						<img src="/images/cubicle_farm.jpg"/>
+					</section>
+					
+				</section>
+
+				<section data-transition="slide">
+					<h3>Actually the function's parameters are properties of a tuple pair </h3>
+					<p>
+					  <br/>
+					  $P(truepair) = f(a, b) = f(x_1, x_2, x_3, \ldots x_n)$
+					</p>
+					<p class="fragment">
+					  <br/>
+					  Where $x_1, x_2, \ldots x_n$ are numeric metrics of the pairing
+					</p>
+				</section>
+
+        <section id="metrics">
+				  <section data-transition="slide">
+					  <h3>Metrics Like Jaro-Winkler Distance</h3>
+					  <img src="/images/jaro_example.png" style="float: right;"/>
+					  <br/>
+					  <p>$d_j = \frac{1}{3}(\frac{m}{|s_1|} + \frac{m}{|s_2|} + \frac{m - t}{m})$</p>
+					  <br/>
+					  <p style="text-align: left">Where:</p>
+					  <p>&nbsp;&nbsp;$m$ is the number of matching characters.</p>
+					  <p>&nbsp;&nbsp;$t$ is half the number of transpositions.</p>
+					  <p><a href="https://en.wikipedia.org/wiki/Jaro–Winkler_distance">Wikipedia Entry for Jaro-Winkler</a></p>
+				  </section>
+				  <section >
+					  <h3>Metrics Like...</h3>
+					  <table>
+					    <tr style="padding-bottom: 5px">
+					      <td><a href="https://en.wikipedia.org/wiki/Levenshtein_distance">Levenshtein Distance</a> of Name</td>
+					      <td>$\mathbb{Z}$</td>
+					    </tr>
+					    <tr>
+					      <td><a href="http://www.postgresql.org/docs/9.1/static/pgtrgm.html">Trigram Distance</a> of Name</td>
+					      <td>$[0,1]$</td>
+					    </tr>
+					    <tr>
+					      <td><a href="http://postgis.net/docs/ST_Distance.html">Geo Spatial Distance</a> of Address</td>
+					      <td>$\mathbb{R}$</td>
+					    </tr>
+					    <tr>
+					      <td>Name Shares Middle Initial Character</td>
+					      <td>$0/1$</td>
+					    </tr>
+					  </table>
+
+
+				  </section>
+        </section>
+  
+        <section id="jaro-winkler-example">
+          <h2>Jaro-Winkler Example</h2>
+          <img src="/images/jaro_example_a.png"/>
+        </section>
+        
+        <section id="jaro-winkler-example">
+          <h2>Trigram Example</h2>
+          <img src="/images/trigram_example_a.png"/>
+          <p class="fragment">
+            What is the optimal threshold?
+          </p>
+        </section>
+
+        <section>
+          <section>
+            <h3>Logistic Regression Provides the Function</h3>
+            <img src="/images/sigmoid.png" style="float: right; background-color: white;" width="275"/>
+            <br/>
+            <p>$P(true pair) = g(t) = \frac{1}{1 + e^{-t}}$</p>
+            <p><br/>$t = \beta_0 + \beta_1x_1 + \ldots \beta_nx_n$</p>
+            <p><br/><br/><a href="https://en.wikipedia.org/wiki/Logistic_regression">Wikipedia on Logistic Regression</a></p>
+          </section>
+          <section>
+            <h4>Logistic regression mathematically links features of tuple pairs to a probability the pair belongs to the set of true pairs <strong>T</strong> or the set of false pairs <strong>F</strong></h4>
+            <p class="fragment" style="text-align: left">
+              Barack Obama vs. Barry Obama<br/><br/>
+              $x_1$ = Jaro Winkler Distance = 0.89<br/>
+              $x_2$ = Trigram Distance = 0.2<br/><br/>
+              $P(true pair) = f(x_1, x_2) = \frac{1}{1 + e^{-(\beta_0 + \beta_1x_1 + \beta_2x_2)}}$
+            </p>
+            <p class="fragment">
+              Logistic regression model solves for $\beta$ coefficients to complete equation.
+            </p>
+          </section>
+        </section>
+        
+        <section>
+          <section>
+            <h3>One more note on features</h3>
+            <p>Can derive features from joined tables</p>
+            <img src="/images/erd_a.png" height="400"/>
+          </section>
+          <section>
+            <table>
+					      <tr style="padding-bottom: 5px">
+					        <td>Same Company/Organization/Relation</td>
+					        <td>$0/1$</td>
+					      </tr>
+					      <tr>
+					        <td>Date/Time of Overlapping Activity</td>
+					        <td>$\mathbb{R}$</td>
+					      </tr>
+					      <tr>
+					        <td>Geo Spatial Distance of Record or Relation</td>
+					        <td>$\mathbb{R}$</td>
+					      </tr>
+					      <tr>
+					        <td>Same Phone Number</td>
+					        <td>$0/1$</td>
+					      </tr>
+					    </table>
+            
+          </section>
+        </section>
+        
+        <section id="madlib">
+          <section>
+            <h2>Implement this with <a href="http://madlib.net/">Madlib</a></h2>
+            
+            <img src="/images/madlib.png"/>
+            
+          </section>
+          <section>
+            <h2> Madlib Provides Stuff Like</h2>
+            <ul>
+              <li>Regression Models</li>
+              <li>Tree Models</li>
+              <li>Conditional Random Field</li>
+              <li>ARIMA</li>
+              <li>Latent Dirichlet Allocation</li>
+              <li>K-means clustering</li>
+              <li>Descriptive Statistics</li>
+              <li>Inference</li>
+              <li>SVM</li>
+              <li>Cardinality Estimators</li>
+              <li>Utility Functions and Types</li>
+            </ul>
+          </section>
+          <section>
+            <h2>Installation</h2>
+            <pre><code data-trim>
+              pgxnclient install madlib
+            </code></pre>
+            
+            or from source on <a href="https://github.com/madlib/madlib">github</a>:
+            
+            <pre><code data-trim>
+Configure; make
+madpack -p postgres -c user@0.0.0.0/db install
+            </code></pre>
+          </section>
+        </section>
+        
+        <section>
+          <h3>Madlib's M.O.</h3>
+          <p>Create training tables, apply SQL function, use model tables</p>
+        </section>
+        
+        <section>
+          <section>
+            <h3>Example Training Table</h3>
+            <img src="/images/link_example_d.png"/>
+          </section>
+          <section>
+            <p>Manually insert training examples</p>
+            <p>Leverage some linkable records, e.g. E.g. 20% of company_a and company_b records have an IRS TID you can link on, but still have representative typo and alternative spelling examples. </p>
+          </section>
+        </section>
+        
+				<section>
+					<h2>Training a Model</h2>
+          <img src="/images/link_example_e.png"/>
+          <p class="fragment">Provides coefficients for $t = \beta_0 + \beta_1x_1 + \ldots \beta_nx_n$</p>
+				</section>
+				
+				<section>
+				  <h2>Making Predictions</h2>
+				  <img src="/images/link_example_f.png"/>
+          <p class="fragment">Returns a probability tuple pair is a true pair.</p>
+				</section>
+
+        <section>
+				  <section data-background="#000">
+					  <h2>Evaluating the Model</h2>
+				   	<img src="/images/link_example_g.png" style="background-color: #000; border: 0px; float: left"/>
+					  <p style="font-size: 70%">
+    					<br/>
+					    $Accuracy = \frac{TP + TN}{TP + TN + FP + FN}$<br/><br/>
+					    $Precision = \frac{TP}{TP + FP}$<br/><br/>
+					    $Recall = \frac{TP}{TP + FN}$
+					  </p>
+				  </section>
+
+          <section data-background="#000">
+					  <h2>Real World Results</h2>
+					  <img src="/images/link_example_h.png" style="background-color: #000; border: 0px; float: left"/>
+					  <p style="font-size: 70%">
+					    <br/>
+					    $Accuracy = \frac{TP + TN}{TP + TN + FP + FN} = 0.995$<br/><br/>
+					    $Precision = \frac{TP}{TP + FP} = 0.985$<br/><br/>
+					    $Recall = \frac{TP}{TP + FN} = 0.992$
+					  </p>
+				  </section>
+        </section>
+        
+        <section>
+          <section data-background="#000000">
+            <h2>Predictions</h2>
+            <img src="/images/link_example_i.png" style="background-color: black; border: 0px;"/>
+          </section>
+          <section data-background="#000000">
+            <h2>Distribution</h2>
+            <img src="/images/link_example_j.png" style="background-color: black; border: 0px;"/>
+          </section>
+        </section>
+				
+        <section data-background="#000000">
+          <img src="/images/link_example_k.png" style="background-color: #000; border: 0px; float: left"/>
+        </section>
+				
+        <section>
+          <img src="/images/link_example_l.png"/>
+        </section>
+        
+        <section>
+          <img src="/images/link_example_m.png"/>
+        </section>
+        
+        <section>
+          <img src="/images/link_example_n.png"/>
+        </section>
+        
+        <section>
+          <img src="/images/link_example_o.png"/>
+          <img src="/images/link_example_p.png"/>
+        </section>
+        
+        <section>
+          M*N ~ (N^2) pair comparisons to find best match
+Compare only against best candidates
+Indexable value that can exclude candidates
+trigram distance
+Geographic restriction
+Kmeans cluster id
+LSH bucket 
+Probably OK to have fairly loose comparison set
+With 100,000,000 records, comparing 100,000,000 * 100 is quite a bit faster than 100,000,000 * 100,000,000.  
+        </section>
+        
+        <section>
+           dentify Problem as multiple records for same entity without a key
+Set of true pairs in A X B
+Binary Classification of pairs
+Solve binary classification in Postgresql with Madlib logistic regression module
+String metric features & features from relations
+Create probabilistic foreign keys
+        </section>
+        
+				<section style="text-align: left;" data-background="/images/recycling.jpg">
+					<h1>Final Thoughts</h1>
+					<p>
+						- We should strive for correct data with referential integrity<br/>
+            - Be comfortable in a world of imperfect databases  
+					</p>
+				</section>
+
+			</div>
+
+		</div>
+
+		<script src="/js/head.min.js"></script>
+		<script src="/js/reveal.js"></script>
+
+		<script>
+
+			// Full list of configuration options available at:
+			// https://github.com/hakimel/reveal.js#configuration
+			Reveal.initialize({
+				controls: true,
+				progress: true,
+				history: true,
+				center: true,
+
+				transition: 'slide', // none/fade/slide/convex/concave/zoom
+
+				// Optional reveal.js plugins
+				dependencies: [
+					{ src: '/js//highlight.js', async: true, condition: function() { return !!document.querySelector( 'pre code' ); }, callback: function() { hljs.initHighlightingOnLoad(); } },
+				]
+			});
+
+		</script>
+		
+	</body>
+</html>
