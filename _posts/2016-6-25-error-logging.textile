@@ -73,5 +73,5 @@ It's a problem with the breadth of the problem space software developers face ev
 
 Log files are simple and readily analyzed, with only a minute of effort you get 90% of the benefit of an error tracking solution that will charge you monthly for the service of grepping your log files for you. 
 
-Of course these services will index and group errors, issue notifications, etc. which are not features to shake a stick at.  But next time you find yourself entering your credit card, and integrating a third party runtime dependency for a SaaS development tool, stop and think about what the DIY approach would be. You may find a solution that is faster to implement, less prone to error, cheaper, with a lower maintenance cost, and still solves your core problem.
+Of course these services will index and group errors, issue notifications, etc. which are not features to shake a stick at.  But there is often a solution (usually sed or awk command found on the back of a cereal box) that is faster to implement, less prone to error, cheaper, with a lower maintenance cost, and still solves your core problem.
 
