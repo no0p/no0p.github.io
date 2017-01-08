@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Planar Trackpad Controls 
+title: Panning Trackpad Controls 
 categories: [threejs]
 ---
 
