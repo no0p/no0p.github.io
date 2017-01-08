@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Panning Trackpad Controls 
+title:  Pan Default With Three.js Trackpad Controls 
 categories: [threejs]
 ---
 
