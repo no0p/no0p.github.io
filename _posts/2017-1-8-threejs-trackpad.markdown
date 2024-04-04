@@ -1,28 +1,28 @@
 ---
 layout: post
-title:  Pan Default With Three.js Trackpad Controls 
+title:  Pan Default With Three.js Trackpad Controls
 categories: [threejs]
 ---
 
 <script src="/js/three.min.js"></script>
 <script src="/js/TrackballControls.js"></script>
 
-h1. {{ page.title }}
+# {{ page.title }}
 
-p(meta). Jan 10, 2017 - Portland
+### Jan 10, 2017 - Portland
 
-p.  You can easily tweak the Three.js Trackpad Control to provide 2d planar pan functionality with left mouse button dragging.
+You can easily tweak the Three.js Trackpad Control to provide 2d planar pan functionality with left mouse button dragging.
 
-h3. Demo of Behavior
+#### Demo of Behavior
 <br/>
 <center>
 <div id="demo-container" style="height: 400px; width: 800px;"></div>
-</center> 
+</center>
 <script>
   document.addEventListener("DOMContentLoaded", function() {
       var w = 800;
       var h = 400;
-      
+
 			var container, stats;
 
 			var camera, controls, scene, renderer;
@@ -34,7 +34,7 @@ h3. Demo of Behavior
 
 			function init() {
         container = document.getElementById( 'demo-container' );
-        
+
 				camera = new THREE.PerspectiveCamera( 60, w / h, 1, 1000 );
 				camera.position.z = 500;
 
@@ -96,7 +96,7 @@ h3. Demo of Behavior
 				renderer.setPixelRatio( window.devicePixelRatio );
 				renderer.setSize( w, h );
 
-				
+
 				container.appendChild( renderer.domElement );
 
 
@@ -138,29 +138,32 @@ h3. Demo of Behavior
 </script>
 
 <br/>
-See the official <a href="https://threejs.org/examples/#misc_controls_trackball">trackball controls demo</a> to compare pan vs. rotate behavior.  
+See the official <a href="https://threejs.org/examples/#misc_controls_trackball">trackball controls demo</a> to compare pan vs. rotate behavior.
 
-h3. Motivation
+#### Motivation
 
-Some visualizations simultaneously benefit from a 3d representation yet present a challenge for users new to 3d environment manipulation.  
+Some visualizations simultaneously benefit from a 3d representation yet present a challenge for users new to 3d environment manipulation.
 
 In these situations left-click rotation of the scene may be of limited utility and more likely to confuse or frustrate the user.
 
-h3. Code Changes
+#### Code Changes
 
 Fortunately the TrackpadControls are well instrumented and the code changes required are trivial.
 
-bc.. # Original STATE variable
+```
+// Original STATE variable
 var STATE = { NONE: - 1, ROTATE: 0, ZOOM: 1, PAN: 2, TOUCH_ROTATE: 3, TOUCH_ZOOM_PAN: 4 };
+```
 
-p.  Is changed to...
+Is changed to...
 
-bc.. var STATE = { NONE: - 1, ROTATE: 2, ZOOM: 1, PAN: 0, TOUCH_ROTATE: 3, TOUCH_ZOOM_PAN: 4 };
+```
+var STATE = { NONE: - 1, ROTATE: 2, ZOOM: 1, PAN: 0, TOUCH_ROTATE: 3, TOUCH_ZOOM_PAN: 4 };
+```
 
-p.  Just swapping out the codes for the mouse button involved, zoom &lt;-&gt; pan.  Please feel free to download the <a href="/js/TrackballControls.js">modified controls</a> used in the demo above.
+Just swapping out the codes for the mouse button involved, zoom &lt;-&gt; pan.  Please feel free to download the <a href="/js/TrackballControls.js">modified controls</a> used in the demo above.
 
 It's too bad these aren't configuration options or attributes on the controls object.
-
 
 
 

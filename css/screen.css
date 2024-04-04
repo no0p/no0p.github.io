@@ -157,6 +157,7 @@ td.trimage {
   width: 42em;
   margin: 3em auto 2em auto;
   line-height: 1.5em;
+  padding-bottom: 30px;
 }
 
 .title {
@@ -180,7 +181,7 @@ ol li {
   }
 
   .site .title a:hover {
-    text-decoration: underline;  
+    text-decoration: underline;
 }
 
 table.books td {
@@ -197,56 +198,25 @@ table.books td {
 #other a {
   color: #00f403;
 }
-  .site .title a.extra {
-    text-decoration: none;
-    margin-left: 1em;
-  }
 
-  .site .title a.extra:hover {
-  }
+.site .title a.extra {
+  text-decoration: none;
+  margin-left: 1em;
+}
 
-  .site .meta {
-    color: #00f403;
-		font-size: 100%;
-  }
+.site .title a.extra:hover {
+}
 
-  .site .footer {
-    font-size: 80%;
-    border-top: 1px solid #ccc;
-    margin-top: 2em;
-    padding-top: 2em;
-    overflow: hidden;
-    font-size: 16pt;
-  }
+.site .meta {
+  color: #00f403;
+  font-size: 100%;
+}
 
-    .site .footer .contact {
-      color: #e5e5e5;
-      float: left;
-      margin-right: 1em;
-    }
-
-    .site .footer .contactr {
-      color: #e5e5e5;
-      float: right;
-      margin-right: 1em;
-    }
-    
-    .site .footer .contactr td {
-      padding-right: 10px;
-    }
-
-      .site .footer .contact a {
-      }
-
-    .site .footer .rss {
-      margin-top: 1.1em;
-      margin-right: -.2em;
-      float: right;
-    }
-
-      .site .footer .rss img {
-        border: 0;
-      }
+footer {
+  position: absolute;
+  bottom: 0;
+  text-align: left;
+}
 
 /*****************************************************************************/
 /*

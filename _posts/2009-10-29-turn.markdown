@@ -1,48 +1,46 @@
 ---
 layout: post
-title: Cool Test::Unit results with TURN 
+title: Cool Test::Unit results with TURN
 ---
 
-h1. {{ page.title }}
+# {{ page.title }}
 
-p(meta). Octo 29 2009 - Los Angeles
+### October 29 2009 - Los Angeles
 
-There is something about nice output that makes you feel good inside.  Like the guarantee written on the outside of a box, a green characters are reassuring.  I rather like Test::Unit as well.  It has a certain moral rigidity to it, not entirely dissimilar to Batman's.  When I use rspec I feel like the kid who always had to change his controller settings before his turn to play Mortal Kombat.  So ... to spice up the Test::Unit output there are some solutions in the world today.    
+There is something about nice output that makes you feel good inside.  Like the guarantee written on the outside of a box, green characters are reassuring.
 
-*1. The gems*
+#### 1. The gems
 
-There is a great turn gem -- Test::Unit Reporter (New).  As the readme notes, if you also install the facets gem turn will produce colored output. 
+There is a great turn gem -- Test::Unit Reporter (New).  As the readme notes, if you also install the facets gem turn will produce colored output.
 
-{%highlight ruby%}
-
-  sudo gem install facets
-  sudo gem install turn
-{%endhighlight%}
+```
+sudo gem install facets
+sudo gem install turn
+```
 
 You can check out the turn repo here: <a href="http://github.com/TwP/turn">http://github.com/TwP/turn</a>
 
-*2. Add a quick require to your test/test_helper.rb*
+#### 2. Add a quick require to your test/test_helper.rb
 Since we're running rails tests you want to add the folowing line to test/test_helper.rb to require turn.
 
-{%highlight ruby%}
-
+```
 begin; require 'turn'; rescue LoadError; end
-{%endhighlight%}
+```
+<p></p>
 
-*3. A little more color*
+#### 3. A little more color
 
 While turn is great by default I kind of like a little more color to help distinguish meaning quickly.  For example you can dig into the gem and add a line to TestRunner.t_test_started in lib/turn.rb:
 
-{%highlight ruby%}
+```
+file = COLORIZE ? ::ANSICode.yellow(file) : file
+```
+<p></p>
+#### 4.  Removing a little excess information
 
-	file = COLORIZE ? ::ANSICode.yellow(file) : file	
-{%endhighlight%}
+Test::Unit::UI::Console::TestRunner likes to ramble about which suite it is loading at various times.  So in the same file as above, lib/turn.rb you can redefine setup_mediator to not display superfluous output.  Just add:
 
-*4.  Removing a little excess information*
-  Test::Unit::UI::Console::TestRunner likes to ramble about which suite it is loading at various times.  So in the same file as above, lib/turn.rb you can redefine setup_mediator to not display superfluous output.  Just add:
-  
-{%highlight ruby%}
-  
+```
 private
 def setup_mediator
   @mediator = create_mediator(@suite)
@@ -52,9 +50,9 @@ def setup_mediator
   end
   output("\n")#put some undetermined formatting preference here.
 end
-{%endhighlight%}
-
-*5.  Getting rails to shut the hell up*
+```
+<p></p>
+#### 5.  Getting rails to quiet down
 
 In your rails directory, whether it be in a gem or vendor, you'll want to make a slight change to */lib/tasks/testing.rake*.  If you're using vim, you might use :%s/t.verbose = true/t.verbose = false/g to replace true with false when setting Rake::TestTask.verbose.
 

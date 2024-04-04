@@ -3,11 +3,11 @@ layout: post
 title: Burr CPU Benchmark of Rackspace v. AWS
 ---
 
-h1. {{ page.title }}
+# {{ page.title }}
 
-p(meta). Jan 24 2012 - Oakland
+### Jan 24 2012 - Oakland
 
-Lies, damned lies, and benchmarks.</p>
+Lies, damned lies, and benchmarks.
 
 A client recently asked me for some advice on available cloud providers.  Given the specific use case, the primary concern is the cpu power to price ratio.
 
@@ -18,7 +18,7 @@ To do the cpu comparison I'll be solving burr puzzles. &nbsp;Burr puzzles are wo
 <img src='/images/36350647-burr_puzzle.jpg'>
 <img src='/images/36350656-burr_parts.jpg'>
 
-I've written an octave script which will create a matrix representation of a 3 dimensional cuboid space and try all permutations until a solution is found. &nbsp;The operations are all matrix addition and equivalency checks. &nbsp;It is a deterministic brute force script. The script is available at&nbsp;<a href="https://github.com/bdigital/burr">https://github.com/bdigital/burr</a> and the naive benchmark can run with:&nbsp;time octave solve.
+To accomplish this I threw together a sloppy octave script which creates a matrix representation of a 3 dimensional cuboid space and brute forces all permutations with collission detection until a solution is found. &nbsp;The operations are all matrix addition and equivalency checks. &nbsp;The script is available at&nbsp;<a href="https://github.com/bdigital/burr">https://github.com/bdigital/burr</a> and the naive benchmark can run with:&nbsp;`time octave solve`.
 
 
 While the problem is embarassingly parallel, I'll be using a single core for this naive benchmark and we'll extrapolate to compare the two server offerings. &nbsp;This may be one of many dangerous asssumptions.

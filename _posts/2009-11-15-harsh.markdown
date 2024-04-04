@@ -1,11 +1,11 @@
 ---
 layout: post
-title: Computer freakouts at the worst possible time 
+title: Computer freakouts at the worst possible time
 ---
 
-h1. {{ page.title }}
+# {{ page.title }}
 
-p(meta). Nov 15, 2009 - Los Angeles
+### Nov 15, 2009 - Los Angeles
 
 *Just when you've got a deadline*
 
@@ -13,12 +13,9 @@ My computer decides to stop responding to elecricity.  In order to get things do
 
 Cannibalizing a few components I'm now blogging and working from this:
 
-The best part is that to turn it on and off you just need to touch a screwdriver to a couple leads.  Now if I can just find an old pizza box to stick this in I'd be in business.
+The screwdriver remains nearby to conveniently connect leads for turning it on and off.
 
-<center>
 <img src="/images/desk1.jpg" style="width: 800px;"/>
-<br/>
-<img src="/images/desk2.jpg" style="width: 800px;"/>
-</center>
+
 
 

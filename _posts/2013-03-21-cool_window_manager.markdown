@@ -3,11 +3,11 @@ layout: post
 title: X Window Manager Review -- Window Lab
 ---
 
-h1. {{ page.title }}
+# {{ page.title }}
 
-p(meta). March 21, 2013 - Portland
+### March 21, 2013 - Portland
 
-I found the lightweight, no distractions window manager I've been looking for today: windowlab.
+I finally found I've been looking for today: windowlab.
 
 Here is a picture of me writing this blog post in window lab.
 
@@ -15,15 +15,15 @@ Here is a picture of me writing this blog post in window lab.
 
 In this post I'll cover how to install windowlab on a modern ubuntu system and how to configure the best features from other desktop environments in a windowlab desktop.
 
-h3. How to install
+#### How to install
 
-@apt-get install windowlab@
+`apt-get install windowlab`
 
 or check out the source at <a href="http://nickgravgaard.com/windowlab/">http://nickgravgaard.com/windowlab/</a>
 
-h3. Usage tips
+#### Usage tips
 
-Any elite window manager should be completely unusable unless you've read at least a page of documenttion.  Fortunately this is the case with window lab which will greet you with a completely blank and unresponsive screen when you first start it.
+Any sufficiently esoteric window manager should be completely unusable unless you've read an unreasonable amount of documenttion.  Fortunately this is the case with window lab, which will greet you with a completely blank and unresponsive screen when you first start it.
 
 Top usage tips:
 
@@ -35,21 +35,25 @@ Top usage tips:
 
 Turns out there is not a lot to this window manager.
 
-h3. Configuration Tips
+#### Configuration Tips
 
-First we need to hijack the config that will launch our x session and call our own script.  This involves changing the Exec key in the file @/usr/share/xsessions/windowlab.desktop@ for a relatively current ubuntu system.
+First we need to hijack the config that will launch our x session and call our own script.  This involves changing the Exec key in the file `/usr/share/xsessions/windowlab.desktop` for a relatively current ubuntu system.
 
-bc. [Desktop Entry]
+```
+[Desktop Entry]
 Encoding=UTF-8
 Name=WindowLab
 Comment=This session logs you into WindowLab
 Exec=/usr/bin/windowlab_start
 Icon=
 Type=Application
+```
 
-The following are the contents of @/usr/bin/windowlab_start@
+The following are the contents of `/usr/bin/windowlab_start`
 
-bc. #!/bin/bash
+
+```
+#!/bin/bash
 nitrogen --restore &
 conky -b &
 gnome-terminal &
@@ -57,89 +61,91 @@ autokey &
 xmodmap -e 'keysym Super_L = mu mu mu'
 xmodmap -e 'clear Mod4'
 /usr/bin/windowlab
+```
 
-&nbsp;
+####  Utilities
 
-h3.  Utilities
+The `windowlab_start` script references some utilities we'll need to install.
 
-The @windowlab_start@ script references some utilities we'll need to install.
+`sudo apt-get install nitrogen conky autokey`
 
-bc. sudo apt-get install nitrogen conky autokey
+*Nitrogen* helps manage background images.  In short, launch nitrogen manually once and select the background images you want, the --restore flag in the script above will preserve between sessions.
 
-*Nitrogen* helps manage background images.  In short, launch nitrogen manually once and select the background images you want, the --restore flag in the script above will preserve between sessions.  
-
-For conky, see @/etc/conky/conky.conf@.  To set it to display to the background, set the own_window directive to no.  And very importantly, check out <a href="https://www.google.com/search?q=conky+deviant+art&client=ubuntu&hs=Ril&channel=cs&source=lnms&tbm=isch&sa=X&ei=z7j-UZm8LqXUiwL53YG4CQ&ved=0CAkQ_AUoAQ&biw=1137&bih=503">some cool conky configurations</a> from the community.  
+For conky, see `/etc/conky/conky.conf`.  To set it to display to the background, set the own_window directive to no.  And very importantly, check out <a href="https://www.google.com/search?q=conky+deviant+art&client=ubuntu&hs=Ril&channel=cs&source=lnms&tbm=isch&sa=X&ei=z7j-UZm8LqXUiwL53YG4CQ&ved=0CAkQ_AUoAQ&biw=1137&bih=503">some cool conky configurations</a> from the community.
 
 <img src="/images/conky_gallery.png" width="700"/>
 
 
-Finally note @autokey@ is included.  We'll use that in the next section to map some useful hotkeys and setup a familiar application launcher which is such a great feature of gnome-3 and unity.
+Finally note `autokey` is included.  We'll use that in the next section to map some useful hotkeys and setup a familiar application launcher which is such a great feature of gnome-3 and unity.
 
-h3.  Launcher
+#### Launcher
 
-There are quite a few cool standalone application launchers, but @gnome-do@ seems to have the best feature set (For a lighter alternative checkout gmrun).
+There are quite a few cool standalone application launchers, but `gnome-do` seems to have the best feature set (For a lighter alternative checkout gmrun).
 
-bc. sudo apt-get install gnome-do
+`sudo apt-get install gnome-do`
 
 Configuring the hotkey to be just the window key, or super key, is a little tricker.  First we remap the super key to an unused character and clear any other mappings.  Note: These are the *xmodmap entries tin the windowlab_start script* above.
 
 Run autokey and use the gui to create a script (assigned to super key) with the following entry which invokes a short python script:
 
-bc. import commands
+```
+import commands
 print commands.getstatusoutput('gnome-do')
+```
 
 &nbsp;
 
 Finally note that you will need to disable gnome-do's hotkey in the gnome-do preferences.
 
-&nbsp;
-
-h3.  Additional Hotkeys
+#### Additional Hotkeys
 
 You can use autokey to create script entries tied to the *volume up / volume down* buttons on the keyboard as well.  As long as you are using alsa, make script entries with the following content.
 
 Volume Down:
 
-bc. import commands
+```
+import commands
 print commands.getstatusoutput('amixer sset Master 5dB-')
+```
 
 Volume Up:
 
-bc. import commands
+```
+import commands
 print commands.getstatusoutput('amixer sset Master 5dB+')
+```
 
 Additionally we can create an entry for the print screen key:
 
-bc. import commands
+```
+import commands
 print commands.getstatusoutput('gnome-screenshot')
+```
 
 &nbsp;
 
-h3.  Dual Monitors
+###  Dual Monitors
 
-Use the @arandr@ tool to generate an xrandr script.  
+Use the `arandr` tool to generate an xrandr script.
 
-bc. sudo apt-get install arandr
+```
+sudo apt-get install arandr
 ./arandr
+```
 
 Save the script somewhere and invoke it in the @windowlab_start@ script created above before beginning launching windowlab.  Will require restart, though I did not try sending any signals to windowlaw process.
 
-&nbsp;
-
-h3.  Application Menu
+#### Application Menu
 
 Edit the file @/etc/X11/windowlab/windowlab.menurc@
 
-&nbsp;
+### Conclusion
 
-h3.  Conclusion
+Well that's it.  I encourage you to make your life more difficult by trying a cool new window manager like windowlab.
 
-Well that's it.  I encourage you to try a cool new window manager like windowlab.
+####  Update!
 
-
-h3.  Update!
-
-Move @/usr/bin/nautilus@ into a different file, and create a shell script in its place to launch nautilus with the --no-desktop option to prevent strange behavior.  
+Move `/usr/bin/nautilus` into a different file, and create a shell script in its place to launch nautilus with the --no-desktop option to prevent strange behavior.
 
 Further, consider using synapse rather than gnome-do, as the latter has fallen into questionable maintenance state.
 
