@@ -149,7 +149,7 @@ Combining the known entities with the types of information the user is seeking, 
 
 Tools for implementing these functions have been around for a long time.  Conditional Random Fields, Non-Transformer Networks, Regular Expressions, Various models for document classification etc.
 
-But now entities can be extracted with zero shot or few shot prompting with decent results with a couple of minutes of effort.  Same with document classification, relevance summarization, etc.  This changes the economics of these projects, making many new application possible.
+But now entities can be extracted with zero shot or few shot prompting with decent results with a couple of minutes of effort.  Same with document classification, relevance summarization, etc.  This changes the economics of these projects, making many new applications possible.
 
 ### The Utility of Information Encoded in Databases
 
@@ -181,7 +181,7 @@ The LLM can then make information that was previously inaccessible, accessible.
 
 There is something terrible about building an application like this.
 
-You need to need to <strong>write code</strong> based on "business rules" tailored to the problem.  All of which is very un-AI.
+You need to <strong>write code</strong> based on "business rules" tailored to the problem.  All of which is very un-AI.
 
 We do it to address the key limitations mentioned above: First, LLMs have a lossy representation of training data, imperfect recall, and a finite training data -- further they can produce output detached from reality.
 
@@ -191,7 +191,7 @@ For now, there is real value in terms of accuracy and utility from journeying th
 
 ### Final thought
 
-This mental model feels a bit like <a href="https://en.wikipedia.org/wiki/Prompt_engineering#Retrieval-augmented_generation">Retreival Augmented Generation</a> but with a little more emphasis on named entity recognition, resolution, and database structure, as opposed to a shotgun vector similarity search.
+This mental model is really just <a href="https://en.wikipedia.org/wiki/Prompt_engineering#Retrieval-augmented_generation">Retreival Augmented Generation</a> but with a little more emphasis on named entity recognition, resolution, and database structure, as opposed to a shotgun vector similarity search.
 
 We can imagine a lot of activity like this taking place with the concept of <a href="https://ai.google.dev/docs/function_calling">tool use</a>.  Where tools provide a in-LLM capabilities to access structured data sources.
 
