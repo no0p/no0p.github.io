@@ -191,7 +191,7 @@ For now, there is real value in terms of accuracy and utility from journeying th
 
 ### Final thought
 
-This mental model is really just <a href="https://en.wikipedia.org/wiki/Prompt_engineering#Retrieval-augmented_generation">Retreival Augmented Generation</a> but with a little more emphasis on named entity recognition, resolution, and database structure, as opposed to a shotgun vector similarity search.
+This mental model is really just <a href="https://en.wikipedia.org/wiki/Prompt_engineering#Retrieval-augmented_generation">Retrieval Augmented Generation</a> but with a little more emphasis on named entity recognition, resolution, and database structure, as opposed to a shotgun vector similarity search.
 
 We can imagine a lot of activity like this taking place with the concept of <a href="https://ai.google.dev/docs/function_calling">tool use</a>.  Where tools provide a in-LLM capabilities to access structured data sources.
 
