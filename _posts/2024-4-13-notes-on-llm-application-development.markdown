@@ -80,7 +80,7 @@ Given a type of expected output and a set of database records, it's straightforw
 
 For example, a `list of patent applications` request which includes entities of `Pfizer` and `COVID-19` can retrieve patent applications from Pfizer referencing COVID-19.  This is nothing more than a database query.
 
-Text from patent application records and other data from the datqabase is included in the context passed to the LLM.
+Text from patent application records and other data from the database is included in the context passed to the LLM.
 
 #### Generate Answers
 
@@ -112,7 +112,7 @@ For a subset of question types we may ask the LLM to make a relevance determinat
 
 This uses a tool to extract structured records out of the context.
 
-An interesting note is that this is where a large context allows some interesting tradeoffs.  For example, if the user has a question about Novartis's patenting activity for treating a given disease, we've seen how to access the relevant patent applications.  But perhaps the user wants to further refine the query with a lot of nuance. It would be easy from an application development point of view to submit every patent Novartis has ever filed in the context and <strong>just let the LLM sort it out</strong>.  Curating a context is expensive an comes with the risk of lost recall.
+An interesting note is that this is where a large context allows some interesting tradeoffs.  For example, if the user has a question about Novartis's patenting activity for treating a given disease, we've seen how to access the relevant patent applications.  But perhaps the user wants to further refine the query with a lot of nuance. It would be easy from an application development point of view to submit every patent Novartis has ever filed in the context and <strong>just let the LLM sort it out</strong>.  Curating a context is expensive and comes with the risk of lost recall.
 
 In this step the goal is to identify any entities that are particularly relevant from the context.  This allows for presenting links or other detailed information from the database in the response.
 
